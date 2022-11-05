@@ -6,10 +6,10 @@ import 'package:vendor_admin/views/widgets/custom_alert_box.dart';
 
 import '../../../../constants/size.dart';
 import '../../../../constants/theme.dart';
-import '../../widgets/bottom_bar.dart';
+import '../../../widgets/bottom_bar.dart';
 
-class Order extends StatelessWidget {
-  Order({super.key});
+class Categories extends StatelessWidget {
+  Categories({super.key});
 
   List<String> list = <String>['10', '20', '30', '40', '50'];
   var selected = 0.obs;
@@ -29,7 +29,7 @@ class Order extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Text(
-                  "Orders Management",
+                  "Categories & Sub-Categories",
                   style: fontStyle(
                     color: HexColor("555454"),
                     size: 25,
@@ -71,7 +71,7 @@ class Order extends StatelessWidget {
                                         elevation: 5,
                                         child: Container(
                                           height: 30,
-                                          width: 160,
+                                          width: 120,
                                           decoration: BoxDecoration(
                                               color: selected.value == 0
                                                   ? accentColor
@@ -82,7 +82,7 @@ class Order extends StatelessWidget {
                                             children: [
                                               Icon(Icons.list, color: white),
                                               Text(
-                                                "  Orders Detail List",
+                                                "  Favourite List",
                                                 style: fontStyle(color: white),
                                               ),
                                             ],
@@ -100,7 +100,7 @@ class Order extends StatelessWidget {
                                           elevation: 5,
                                           child: Container(
                                               height: 30,
-                                              width: 160,
+                                              width: 140,
                                               decoration: BoxDecoration(
                                                   color: selected.value == 1
                                                       ? accentColor
@@ -112,7 +112,7 @@ class Order extends StatelessWidget {
                                                   Icon(Icons.list,
                                                       color: white),
                                                   Text(
-                                                    "  Orders Status List",
+                                                    "  Sub-Category List",
                                                     style:
                                                         fontStyle(color: white),
                                                   ),
@@ -241,13 +241,6 @@ class Order extends StatelessWidget {
                               )),
                           Row(
                             children: [
-                              Center(
-                                child: IconButton(
-                                  icon: const Icon(Icons.remove_red_eye,
-                                      color: Colors.blue),
-                                  onPressed: () {},
-                                ),
-                              ),
                               Center(
                                 child: IconButton(
                                   icon: const Icon(Icons.edit,

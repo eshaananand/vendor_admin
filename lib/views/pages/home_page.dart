@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 import '../../constants/size.dart';
 import '../../controller/page_controller.dart';
-import '../drawer/App Management/categories.dart';
+import '../drawer/App Management/Categories/categories.dart';
 import '../drawer/App Management/coupons.dart';
 import '../drawer/App Management/customers.dart';
 import '../drawer/App Management/delivery.dart';

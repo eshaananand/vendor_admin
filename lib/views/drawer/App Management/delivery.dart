@@ -8,7 +8,8 @@ import '../../../constants/size.dart';
 import '../../../constants/theme.dart';
 
 class Delivery extends StatelessWidget {
-  const Delivery({super.key});
+  var pageController;
+  Delivery({super.key, this.pageController});
 
   @override
   Widget build(BuildContext context) {

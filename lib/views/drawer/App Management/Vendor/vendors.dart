@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:vendor_admin/views/widgets/bottom_bar.dart';
 import 'package:vendor_admin/views/widgets/custom_tile.dart';
 
-import '../../../constants/colors.dart';
-import '../../../constants/size.dart';
-import '../../../constants/theme.dart';
+import '../../../../constants/colors.dart';
+import '../../../../constants/size.dart';
+import '../../../../constants/theme.dart';
 
 class Vendors extends StatelessWidget {
-  const Vendors({super.key});
+  var pageController;
+  Vendors({super.key, required this.pageController});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,9 @@ class Vendors extends StatelessWidget {
                       width: customTileWidth,
                       child: CustomTile(
                         imagePath: "assets/vendors_custom_tile.png",
-                        onTap: () {},
+                        onTap: () {
+                          pageController.index.value = 17;
+                        },
                         title: "New Vendor\nRequested",
                         footerColor: HexColor("4CAF50"),
                       ),
@@ -56,7 +60,9 @@ class Vendors extends StatelessWidget {
                       width: customTileWidth,
                       child: CustomTile(
                         imagePath: "assets/category_custom_tile.png",
-                        onTap: () {},
+                        onTap: () {
+                          pageController.index.value = 18;
+                        },
                         title: "Vendor\nDetails",
                         footerColor: HexColor("F32D2D"),
                       ),
@@ -66,7 +72,9 @@ class Vendors extends StatelessWidget {
                       width: customTileWidth,
                       child: CustomTile(
                         imagePath: "assets/products_custom_tile.png",
-                        onTap: () {},
+                        onTap: () {
+                          pageController.index.value = 19;
+                        },
                         title: "Vendor\nGalleries",
                         footerColor: HexColor("4687FF"),
                       ),
@@ -76,19 +84,10 @@ class Vendors extends StatelessWidget {
                       width: customTileWidth,
                       child: CustomTile(
                         imagePath: "assets/orange_vendor_custom_tile.png",
-                        onTap: () {},
+                        onTap: () {
+                          pageController.index.value = 20;
+                        },
                         title: "Vendor\nReviews",
-                        footerColor: HexColor("FF8B36"),
-                      ),
-                    ),
-                    SizedBox(
-                      height: customTileHeight,
-                      width: customTileWidth,
-                      child: CustomTile(
-                        imagePath: "assets/riders_custom_tile.png",
-                        onTap: () {},
-                        subtitle: "Total Riders",
-                        title: "200",
                         footerColor: HexColor("FF8B36"),
                       ),
                     ),
@@ -121,7 +120,9 @@ class Vendors extends StatelessWidget {
                         width: customTileWidth,
                         child: CustomTile(
                           imagePath: "assets/earning_custom_tile.png",
-                          onTap: () {},
+                          onTap: () {
+                            pageController.index.value = 21;
+                          },
                           title: "Payment \nHistory",
                           footerColor: HexColor("4687FF"),
                         ),
@@ -132,7 +133,9 @@ class Vendors extends StatelessWidget {
                       width: customTileWidth,
                       child: CustomTile(
                         imagePath: "assets/green_earning_custom_tile.png",
-                        onTap: () {},
+                        onTap: () {
+                          pageController.index.value = 22;
+                        },
                         title: "Refer &\nEarn",
                         footerColor: HexColor("4CAF50"),
                       ),

@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:vendor_admin/views/widgets/bottom_bar.dart';
 import 'package:vendor_admin/views/widgets/custom_tile.dart';
 
-import '../../../constants/colors.dart';
-import '../../../constants/size.dart';
-import '../../../constants/theme.dart';
+import '../../../../constants/colors.dart';
+import '../../../../constants/size.dart';
+import '../../../../constants/theme.dart';
+import '../../../../controller/page_controller.dart';
 
 class Customers extends StatelessWidget {
-  const Customers({super.key});
+  var pageController;
+  Customers({super.key, required this.pageController});
 
   @override
   Widget build(BuildContext context) {
+    print(pageController.index.value);
+
     return SafeArea(
       child: Scaffold(
           body: Padding(
@@ -46,7 +51,9 @@ class Customers extends StatelessWidget {
                           width: customTileWidth,
                           child: CustomTile(
                             imagePath: "assets/category_custom_tile.png",
-                            onTap: () {},
+                            onTap: () {
+                              pageController.index.value = 14;
+                            },
                             title: "Customer \nDetails",
                             footerColor: HexColor("F32D2D"),
                           ),
@@ -59,7 +66,9 @@ class Customers extends StatelessWidget {
                           width: customTileWidth,
                           child: CustomTile(
                             imagePath: "assets/earning_custom_tile.png",
-                            onTap: () {},
+                            onTap: () {
+                              pageController.index.value = 15;
+                            },
                             title: "Payment \nHistory",
                             footerColor: HexColor("4687FF"),
                           ),
@@ -70,7 +79,9 @@ class Customers extends StatelessWidget {
                         width: customTileWidth,
                         child: CustomTile(
                           imagePath: "assets/green_earning_custom_tile.png",
-                          onTap: () {},
+                          onTap: () {
+                            pageController.index.value = 16;
+                          },
                           title: "Refer &\nEarn",
                           footerColor: HexColor("4CAF50"),
                         ),
@@ -111,7 +122,9 @@ class Customers extends StatelessWidget {
                                     child: Text(
                                       "All Payments",
                                       style: fontStyle(
-                                          color: accentColor, size: 15),
+                                        color: accentColor,
+                                        size: 15,
+                                      ),
                                     ),
                                   )
                                 ],
@@ -119,8 +132,13 @@ class Customers extends StatelessWidget {
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: space, top: space),
-                              child: Text("Rs 1500",
-                                  style: fontStyle(color: black, size: 28)),
+                              child: Text(
+                                "Rs 1500",
+                                style: fontStyle(
+                                  color: black,
+                                  size: 28,
+                                ),
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: space),

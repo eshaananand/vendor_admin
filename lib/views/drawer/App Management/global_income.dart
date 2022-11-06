@@ -10,7 +10,8 @@ import '../../../constants/theme.dart';
 import '../../widgets/bottom_bar.dart';
 
 class GlobalIncome extends StatelessWidget {
-  GlobalIncome({super.key});
+  var pageController;
+  GlobalIncome({super.key, this.pageController});
 
   List<String> list = <String>['10', '20', '30', '40', '50'];
 
@@ -30,7 +31,7 @@ class GlobalIncome extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Text(
-                  "Favourites",
+                  "Global Income",
                   style: fontStyle(
                     color: HexColor("555454"),
                     size: 25,
@@ -74,7 +75,7 @@ class GlobalIncome extends StatelessWidget {
                                       children: [
                                         Icon(Icons.list, color: white),
                                         Text(
-                                          "  Favourite List",
+                                          "  Global List",
                                           style: fontStyle(color: white),
                                         ),
                                       ],

@@ -8,7 +8,8 @@ import '../../../constants/size.dart';
 import '../../../constants/theme.dart';
 
 class Products extends StatelessWidget {
-  const Products({super.key});
+  var pageController;
+  Products({super.key, this.pageController});
 
   @override
   Widget build(BuildContext context) {

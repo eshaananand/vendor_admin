@@ -8,9 +8,9 @@ import '../../../../constants/size.dart';
 import '../../../../constants/theme.dart';
 import '../../../widgets/bottom_bar.dart';
 
-class Categories extends StatelessWidget {
+class VendorGalleries extends StatelessWidget {
   var pageController;
-  Categories({super.key, this.pageController});
+  VendorGalleries({super.key, this.pageController});
 
   List<String> list = <String>['10', '20', '30', '40', '50'];
   var selected = 0.obs;
@@ -30,7 +30,7 @@ class Categories extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Text(
-                  "Categories & Sub-Categories",
+                  "Vendor Galleries",
                   style: fontStyle(
                     color: HexColor("555454"),
                     size: 25,
@@ -83,7 +83,7 @@ class Categories extends StatelessWidget {
                                             children: [
                                               Icon(Icons.list, color: white),
                                               Text(
-                                                "  Favourite List",
+                                                " Galleriey List",
                                                 style: fontStyle(color: white),
                                               ),
                                             ],

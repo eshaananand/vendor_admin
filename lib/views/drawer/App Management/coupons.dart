@@ -9,7 +9,8 @@ import '../../../../constants/theme.dart';
 import '../../widgets/bottom_bar.dart';
 
 class Coupons extends StatelessWidget {
-  Coupons({super.key});
+  var pageController;
+  Coupons({super.key, this.pageController});
 
   List<String> list = <String>['10', '20', '30', '40', '50'];
   var selected = 0.obs;
@@ -102,8 +103,10 @@ class Coupons extends StatelessWidget {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: [
-                                                Icon(Icons.add_circle_outlined,
-                                                    color: HexColor("555454")),
+                                                Icon(
+                                                  Icons.add_circle_outlined,
+                                                  color: HexColor("555454"),
+                                                ),
                                                 Text(
                                                   " Create Coupon",
                                                   style: fontStyle(

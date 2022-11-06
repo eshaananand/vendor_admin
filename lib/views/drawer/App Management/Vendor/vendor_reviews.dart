@@ -8,9 +8,8 @@ import '../../../../constants/size.dart';
 import '../../../../constants/theme.dart';
 import '../../../widgets/bottom_bar.dart';
 
-class Categories extends StatelessWidget {
-  var pageController;
-  Categories({super.key, this.pageController});
+class VendorReviews extends StatelessWidget {
+  VendorReviews({super.key});
 
   List<String> list = <String>['10', '20', '30', '40', '50'];
   var selected = 0.obs;
@@ -30,7 +29,7 @@ class Categories extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Text(
-                  "Categories & Sub-Categories",
+                  "Vendor Reviews",
                   style: fontStyle(
                     color: HexColor("555454"),
                     size: 25,
@@ -64,30 +63,23 @@ class Categories extends StatelessWidget {
                               children: [
                                 Row(
                                   children: [
-                                    InkWell(
-                                      onTap: () {
-                                        selected.value = 0;
-                                      },
-                                      child: Material(
-                                        elevation: 5,
-                                        child: Container(
-                                          height: 30,
-                                          width: 120,
-                                          decoration: BoxDecoration(
-                                              color: selected.value == 0
-                                                  ? accentColor
-                                                  : HexColor("555454")),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Icon(Icons.list, color: white),
-                                              Text(
-                                                "  Favourite List",
-                                                style: fontStyle(color: white),
-                                              ),
-                                            ],
-                                          ),
+                                    Material(
+                                      elevation: 5,
+                                      child: Container(
+                                        height: 30,
+                                        width: 120,
+                                        decoration:
+                                            BoxDecoration(color: accentColor),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(Icons.list, color: white),
+                                            Text(
+                                              " Reviews List",
+                                              style: fontStyle(color: white),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ),

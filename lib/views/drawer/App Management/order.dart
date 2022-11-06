@@ -9,7 +9,8 @@ import '../../../../constants/theme.dart';
 import '../../widgets/bottom_bar.dart';
 
 class Order extends StatelessWidget {
-  Order({super.key});
+  var pageController;
+  Order({super.key, this.pageController});
 
   List<String> list = <String>['10', '20', '30', '40', '50'];
   var selected = 0.obs;

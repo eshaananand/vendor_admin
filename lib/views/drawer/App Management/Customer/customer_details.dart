@@ -1,17 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:vendor_admin/constants/colors.dart';
 import 'package:vendor_admin/views/widgets/custom_alert_box.dart';
+import '../../../../constants/size.dart';
+import '../../../../constants/theme.dart';
+import '../../../widgets/bottom_bar.dart';
 
-import '../../../constants/size.dart';
-import '../../../constants/theme.dart';
-import '../../widgets/bottom_bar.dart';
-
-class Support extends StatelessWidget {
-  var pageController;
-  Support({super.key, this.pageController});
+class CustomerDetails extends StatelessWidget {
+  CustomerDetails({super.key});
 
   List<String> list = <String>['10', '20', '30', '40', '50'];
 
@@ -31,7 +28,7 @@ class Support extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Text(
-                  "Support",
+                  "Customer Details",
                   style: fontStyle(
                     color: HexColor("555454"),
                     size: 25,
@@ -75,7 +72,7 @@ class Support extends StatelessWidget {
                                       children: [
                                         Icon(Icons.list, color: white),
                                         Text(
-                                          "  Support List",
+                                          "  Customer List",
                                           style: fontStyle(color: white),
                                         ),
                                       ],
@@ -195,16 +192,15 @@ class Support extends StatelessWidget {
                               ],
                             )),
                         Center(
-                          child: IconButton(
-                            icon: Icon(Icons.delete, color: accentColor),
-                            onPressed: () {
-                              CustomAlertBox.dialogBox(
-                                onCancelTap: () {},
-                                onYesTap: () {},
-                              );
-                            },
-                          ),
-                        ),
+                            child: IconButton(
+                          icon: Icon(Icons.delete, color: accentColor),
+                          onPressed: () {
+                            CustomAlertBox.dialogBox(
+                              onCancelTap: () {},
+                              onYesTap: () {},
+                            );
+                          },
+                        ))
                       ],
                     ),
                   ),

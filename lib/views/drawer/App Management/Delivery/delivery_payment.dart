@@ -4,15 +4,14 @@ import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:vendor_admin/constants/colors.dart';
 import 'package:vendor_admin/views/widgets/custom_alert_box.dart';
-
+import '../../../../constants/colors.dart';
 import '../../../../constants/size.dart';
 import '../../../../constants/theme.dart';
 import '../../../widgets/bottom_bar.dart';
-import 'banner_edit.dart';
 
-class Banners extends StatelessWidget {
+class DeliveryPayment extends StatelessWidget {
   var pageController;
-  Banners({super.key, this.pageController});
+  DeliveryPayment({super.key, this.pageController});
 
   List<String> list = <String>['10', '20', '30', '40', '50'];
 
@@ -32,7 +31,7 @@ class Banners extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Text(
-                  "Banner",
+                  "Payment History | Delivery",
                   style: fontStyle(
                     color: HexColor("555454"),
                     size: 25,
@@ -67,7 +66,7 @@ class Banners extends StatelessWidget {
                                 elevation: 5,
                                 child: Container(
                                     height: 30,
-                                    width: 120,
+                                    width: 160,
                                     decoration:
                                         BoxDecoration(color: accentColor),
                                     child: Row(
@@ -76,7 +75,7 @@ class Banners extends StatelessWidget {
                                       children: [
                                         Icon(Icons.list, color: white),
                                         Text(
-                                          "  Banner List",
+                                          " Payment List",
                                           style: fontStyle(color: white),
                                         ),
                                       ],
@@ -195,30 +194,16 @@ class Banners extends StatelessWidget {
                                 ),
                               ],
                             )),
-                        Row(
-                          children: [
-                            Center(
-                              child: IconButton(
-                                icon:
-                                    const Icon(Icons.edit, color: Colors.blue),
-                                onPressed: () {
-                                  pageController.index.value = 40;
-                                },
-                              ),
-                            ),
-                            Center(
-                              child: IconButton(
-                                icon: Icon(Icons.delete, color: accentColor),
-                                onPressed: () {
-                                  CustomAlertBox.dialogBox(
-                                    onCancelTap: () {},
-                                    onYesTap: () {},
-                                  );
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
+                        Center(
+                            child: IconButton(
+                          icon: Icon(Icons.delete, color: accentColor),
+                          onPressed: () {
+                            CustomAlertBox.dialogBox(
+                              onCancelTap: () {},
+                              onYesTap: () {},
+                            );
+                          },
+                        ))
                       ],
                     ),
                   ),

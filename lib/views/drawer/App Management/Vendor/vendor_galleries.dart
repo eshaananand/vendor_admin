@@ -246,7 +246,9 @@ class VendorGalleries extends StatelessWidget {
                                 child: IconButton(
                                   icon: const Icon(Icons.edit,
                                       color: Colors.blue),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    pageController.index.value = 24;
+                                  },
                                 ),
                               ),
                               Center(

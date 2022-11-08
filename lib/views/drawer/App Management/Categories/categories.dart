@@ -83,7 +83,7 @@ class Categories extends StatelessWidget {
                                             children: [
                                               Icon(Icons.list, color: white),
                                               Text(
-                                                "  Favourite List",
+                                                "  Category List",
                                                 style: fontStyle(color: white),
                                               ),
                                             ],
@@ -246,7 +246,13 @@ class Categories extends StatelessWidget {
                                 child: IconButton(
                                   icon: const Icon(Icons.edit,
                                       color: Colors.blue),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    if (selected.value == 0) {
+                                      pageController.index.value = 26;
+                                    } else {
+                                      pageController.index.value = 27;
+                                    }
+                                  },
                                 ),
                               ),
                               Center(

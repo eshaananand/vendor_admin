@@ -9,8 +9,8 @@ import '../../../../constants/theme.dart';
 import '../../../widgets/bottom_bar.dart';
 
 class VendorReviews extends StatelessWidget {
-  VendorReviews({super.key});
-
+  VendorReviews({super.key, this.pageController});
+  var pageController;
   List<String> list = <String>['10', '20', '30', '40', '50'];
   var selected = 0.obs;
   @override
@@ -65,21 +65,28 @@ class VendorReviews extends StatelessWidget {
                                   children: [
                                     Material(
                                       elevation: 5,
-                                      child: Container(
-                                        height: 30,
-                                        width: 120,
-                                        decoration:
-                                            BoxDecoration(color: accentColor),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Icon(Icons.list, color: white),
-                                            Text(
-                                              " Reviews List",
-                                              style: fontStyle(color: white),
-                                            ),
-                                          ],
+                                      child: InkWell(
+                                        onTap: () {
+                                          selected.value = 0;
+                                        },
+                                        child: Container(
+                                          height: 30,
+                                          width: 120,
+                                          decoration: BoxDecoration(
+                                              color: selected.value == 0
+                                                  ? accentColor
+                                                  : HexColor("555454")),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(Icons.list, color: white),
+                                              Text(
+                                                " Reviews List",
+                                                style: fontStyle(color: white),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -238,7 +245,9 @@ class VendorReviews extends StatelessWidget {
                                 child: IconButton(
                                   icon: const Icon(Icons.edit,
                                       color: Colors.blue),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    pageController.index.value = 25;
+                                  },
                                 ),
                               ),
                               Center(

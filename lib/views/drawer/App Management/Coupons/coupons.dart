@@ -4,13 +4,13 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:vendor_admin/constants/colors.dart';
 import 'package:vendor_admin/views/widgets/custom_alert_box.dart';
 
-import '../../../../constants/size.dart';
-import '../../../../constants/theme.dart';
-import '../../widgets/bottom_bar.dart';
+import '../../../../../constants/size.dart';
+import '../../../../../constants/theme.dart';
+import '../../../widgets/bottom_bar.dart';
 
-class Order extends StatelessWidget {
+class Coupons extends StatelessWidget {
   var pageController;
-  Order({super.key, this.pageController});
+  Coupons({super.key, this.pageController});
 
   List<String> list = <String>['10', '20', '30', '40', '50'];
   var selected = 0.obs;
@@ -30,7 +30,7 @@ class Order extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Text(
-                  "Orders Management",
+                  "Coupons",
                   style: fontStyle(
                     color: HexColor("555454"),
                     size: 25,
@@ -74,16 +74,17 @@ class Order extends StatelessWidget {
                                           height: 30,
                                           width: 160,
                                           decoration: BoxDecoration(
-                                              color: selected.value == 0
-                                                  ? accentColor
-                                                  : HexColor("555454")),
+                                            color: selected.value == 0
+                                                ? accentColor
+                                                : HexColor("555454"),
+                                          ),
                                           child: Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
                                               Icon(Icons.list, color: white),
                                               Text(
-                                                "  Orders Detail List",
+                                                "  Coupon List",
                                                 style: fontStyle(color: white),
                                               ),
                                             ],
@@ -95,31 +96,27 @@ class Order extends StatelessWidget {
                                       padding: padding(left: 10),
                                       child: InkWell(
                                         onTap: () {
-                                          selected.value = 1;
+                                          pageController.index.value = 35;
                                         },
-                                        child: Material(
-                                          elevation: 5,
-                                          child: Container(
-                                              height: 30,
-                                              width: 160,
-                                              decoration: BoxDecoration(
-                                                  color: selected.value == 1
-                                                      ? accentColor
-                                                      : HexColor("555454")),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Icon(Icons.list,
-                                                      color: white),
-                                                  Text(
-                                                    "  Orders Status List",
-                                                    style:
-                                                        fontStyle(color: white),
-                                                  ),
-                                                ],
-                                              )),
-                                        ),
+                                        child: Container(
+                                            height: 30,
+                                            width: 160,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Icon(
+                                                  Icons.add_circle_outlined,
+                                                  color: HexColor("555454"),
+                                                ),
+                                                Text(
+                                                  " Create Coupon",
+                                                  style: fontStyle(
+                                                      color:
+                                                          HexColor("555454")),
+                                                ),
+                                              ],
+                                            )),
                                       ),
                                     ),
                                   ],
@@ -242,13 +239,6 @@ class Order extends StatelessWidget {
                               )),
                           Row(
                             children: [
-                              Center(
-                                child: IconButton(
-                                  icon: const Icon(Icons.remove_red_eye,
-                                      color: Colors.blue),
-                                  onPressed: () {},
-                                ),
-                              ),
                               Center(
                                 child: IconButton(
                                   icon: const Icon(Icons.edit,

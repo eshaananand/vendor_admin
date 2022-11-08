@@ -10,21 +10,20 @@ import '../../../../constants/theme.dart';
 import '../../../widgets/bottom_bar.dart';
 import '../../../widgets/custom_form_field.dart';
 
-class EditVendorDetails extends StatelessWidget {
+class EditProductDetails extends StatelessWidget {
   var pageController;
-  EditVendorDetails({super.key, this.pageController});
+  EditProductDetails({super.key, this.pageController});
 
   TextEditingController nameControl = TextEditingController();
-  TextEditingController phoneControl = TextEditingController();
-  TextEditingController categoryControl = TextEditingController();
+  TextEditingController priceControl = TextEditingController();
+  TextEditingController discountControl = TextEditingController();
   TextEditingController subCategoryControl = TextEditingController();
   TextEditingController descriptionControl = TextEditingController();
-  TextEditingController feeControl = TextEditingController();
-  TextEditingController rangeControl = TextEditingController();
-  TextEditingController addressControl = TextEditingController();
-  TextEditingController adminNameControl = TextEditingController();
-  TextEditingController commisionControl = TextEditingController();
-  RxBool isActive = false.obs;
+  TextEditingController capacityControl = TextEditingController();
+  TextEditingController unitControl = TextEditingController();
+  TextEditingController categoryControl = TextEditingController();
+
+  RxBool isFeatured = false.obs;
   RxBool isForDelivery = false.obs;
   @override
   Widget build(BuildContext context) {
@@ -41,7 +40,7 @@ class EditVendorDetails extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Text(
-                  "Edit Vendor Details",
+                  "Edit Product Details",
                   style: fontStyle(
                     color: HexColor("555454"),
                     size: 25,
@@ -73,7 +72,7 @@ class EditVendorDetails extends StatelessWidget {
                             children: [
                               InkWell(
                                 onTap: () {
-                                  pageController.index.value = 17;
+                                  pageController.index.value = 31;
                                 },
                                 child: Row(
                                   children: [
@@ -81,12 +80,12 @@ class EditVendorDetails extends StatelessWidget {
                                       Icons.list,
                                       color: HexColor("555454"),
                                     ),
-                                    const Text("  Vendor List    "),
+                                    const Text("   Product Details    "),
                                     Material(
                                       elevation: 5,
                                       child: Container(
                                         height: 30,
-                                        width: 120,
+                                        width: 160,
                                         decoration:
                                             BoxDecoration(color: accentColor),
                                         child: Row(
@@ -95,7 +94,7 @@ class EditVendorDetails extends StatelessWidget {
                                           children: [
                                             Icon(Icons.edit, color: white),
                                             Text(
-                                              "  Edit Vendor",
+                                              "  Edit Product Details",
                                               style: fontStyle(color: white),
                                             ),
                                           ],
@@ -179,154 +178,9 @@ class EditVendorDetails extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 20.0, left: 75),
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 13.0),
-                                            child: Text(
-                                              "Phone  ",
-                                              style: fontStyle(
-                                                color: black,
-                                                fontWeight: bold,
-                                                size: 14,
-                                              ),
-                                            ),
-                                          ),
-                                          CustomFormField(
-                                              controller: phoneControl,
-                                              subtitle: "Insert phone number")
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 13, left: 75),
-                                      child: Text("Admin Access",
-                                          style: fontStyle(
-                                            size: 18,
-                                            fontWeight: bold,
-                                          )),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 20.0, left: 40),
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 13.0),
-                                            child: Text(
-                                              "Categories  ",
-                                              style: fontStyle(
-                                                color: black,
-                                                fontWeight: bold,
-                                                size: 14,
-                                              ),
-                                            ),
-                                          ),
-                                          CustomFormField(
-                                              controller: categoryControl,
-                                              subtitle: "Select Category")
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 20.0, left: 65),
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 13.0),
-                                            child: Text(
-                                              "Owner Name  ",
-                                              style: fontStyle(
-                                                color: black,
-                                                fontWeight: bold,
-                                                size: 14,
-                                              ),
-                                            ),
-                                          ),
-                                          CustomFormField(
-                                              controller: adminNameControl,
-                                              subtitle: "Shop owner name")
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 20.0, left: 25),
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 13.0),
-                                            child: Text(
-                                              "SubCategory  ",
-                                              style: fontStyle(
-                                                color: black,
-                                                fontWeight: bold,
-                                                size: 14,
-                                              ),
-                                            ),
-                                          ),
-                                          CustomFormField(
-                                              controller: subCategoryControl,
-                                              subtitle: "Select Subcategory")
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 20.0),
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 13.0, left: 20),
-                                            child: Text(
-                                              "Admin Commission  ",
-                                              style: fontStyle(
-                                                color: black,
-                                                fontWeight: bold,
-                                                size: 14,
-                                              ),
-                                            ),
-                                          ),
-                                          CustomFormField(
-                                              controller: commisionControl,
-                                              subtitle: "Admin Commission")
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
                                 Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 20.0, left: 0),
+                                  padding: const EdgeInsets.only(
+                                      top: 20.0, left: 75),
                                   child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -335,7 +189,7 @@ class EditVendorDetails extends StatelessWidget {
                                         padding:
                                             const EdgeInsets.only(top: 13.0),
                                         child: Text(
-                                          "Shop Description ",
+                                          "Price  ",
                                           style: fontStyle(
                                             color: black,
                                             fontWeight: bold,
@@ -343,45 +197,34 @@ class EditVendorDetails extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 8.0),
-                                            child: SizedBox(
-                                              width: 190,
-                                              child: TextFormField(
-                                                minLines: 3,
-                                                maxLines: 3,
-                                                controller: descriptionControl,
-                                                decoration: InputDecoration(
-                                                  fillColor: Colors.white,
-                                                  border: OutlineInputBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            5.0),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
+                                      CustomFormField(
+                                          controller: priceControl,
+                                          subtitle: "Insert price number")
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 20.0, left: 50),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 13.0),
+                                        child: Text(
+                                          "Discount  ",
+                                          style: fontStyle(
+                                            color: black,
+                                            fontWeight: bold,
+                                            size: 14,
                                           ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 10.0),
-                                            child: Text(
-                                              "Insert Description",
-                                              style: fontStyle(
-                                                color: HexColor("555454"),
-                                                size: 12,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
+                                        ),
                                       ),
+                                      CustomFormField(
+                                          controller: discountControl,
+                                          subtitle: "Insert Discount Price")
                                     ],
                                   ),
                                 ),
@@ -396,7 +239,7 @@ class EditVendorDetails extends StatelessWidget {
                                         padding:
                                             const EdgeInsets.only(top: 13.0),
                                         child: Text(
-                                          "Delivery Fee  ",
+                                          "Description  ",
                                           style: fontStyle(
                                             color: black,
                                             fontWeight: bold,
@@ -405,8 +248,60 @@ class EditVendorDetails extends StatelessWidget {
                                         ),
                                       ),
                                       CustomFormField(
-                                          controller: feeControl,
-                                          subtitle: "Insert Delivery Fee")
+                                          line: 3,
+                                          controller: descriptionControl,
+                                          subtitle: "Enter Description")
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 20.0, left: 45),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 13.0),
+                                        child: Text(
+                                          "Capacity  ",
+                                          style: fontStyle(
+                                            color: black,
+                                            fontWeight: bold,
+                                            size: 14,
+                                          ),
+                                        ),
+                                      ),
+                                      CustomFormField(
+                                          line: 3,
+                                          controller: capacityControl,
+                                          subtitle: "Enter Capacity")
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 20.0, left: 75),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 13.0),
+                                        child: Text(
+                                          "Unit  ",
+                                          style: fontStyle(
+                                            color: black,
+                                            fontWeight: bold,
+                                            size: 14,
+                                          ),
+                                        ),
+                                      ),
+                                      CustomFormField(
+                                          controller: unitControl,
+                                          subtitle: "Insert unit")
                                     ],
                                   ),
                                 ),
@@ -420,9 +315,9 @@ class EditVendorDetails extends StatelessWidget {
                                     children: [
                                       Padding(
                                         padding: const EdgeInsets.only(
-                                            top: 13.0, left: 5),
+                                            top: 13.0, left: 40),
                                         child: Text(
-                                          "Delivery Range  ",
+                                          "Category  ",
                                           style: fontStyle(
                                             color: black,
                                             fontWeight: bold,
@@ -431,8 +326,8 @@ class EditVendorDetails extends StatelessWidget {
                                         ),
                                       ),
                                       CustomFormField(
-                                        controller: rangeControl,
-                                        subtitle: "Insert Delivery Range",
+                                        controller: categoryControl,
+                                        subtitle: "Insert Category",
                                       )
                                     ],
                                   ),
@@ -447,9 +342,9 @@ class EditVendorDetails extends StatelessWidget {
                                     children: [
                                       Padding(
                                         padding: const EdgeInsets.only(
-                                            top: 13.0, left: 50),
+                                            top: 13.0, left: 15),
                                         child: Text(
-                                          "Address  ",
+                                          "Subcategory  ",
                                           style: fontStyle(
                                             color: black,
                                             fontWeight: bold,
@@ -458,8 +353,8 @@ class EditVendorDetails extends StatelessWidget {
                                         ),
                                       ),
                                       CustomFormField(
-                                        controller: addressControl,
-                                        subtitle: "Insert Address of the Shop",
+                                        controller: subCategoryControl,
+                                        subtitle: "Insert Subcategory",
                                       )
                                     ],
                                   ),
@@ -475,25 +370,25 @@ class EditVendorDetails extends StatelessWidget {
                                         () => Row(
                                           children: [
                                             Text(
-                                              "Active",
+                                              "Featured",
                                               style: fontStyle(
                                                 fontWeight: bold,
                                                 size: 15,
                                               ),
                                             ),
-                                            isActive.value
+                                            isFeatured.value
                                                 ? IconButton(
                                                     icon: Icon(Icons.check_box,
                                                         color: accentColor),
                                                     onPressed: () {
-                                                      isActive.value = false;
+                                                      isFeatured.value = false;
                                                     },
                                                   )
                                                 : IconButton(
                                                     icon: Icon(Icons
                                                         .crop_square_rounded),
                                                     onPressed: () {
-                                                      isActive.value = true;
+                                                      isFeatured.value = true;
                                                     },
                                                   )
                                           ],

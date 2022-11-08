@@ -8,7 +8,8 @@ import '../../constants/size.dart';
 import '../../constants/theme.dart';
 
 class Dashboard extends StatelessWidget {
-  const Dashboard({super.key});
+  var pageController;
+  Dashboard({super.key, this.pageController});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +47,9 @@ class Dashboard extends StatelessWidget {
                       width: customTileWidth,
                       child: CustomTile(
                         imagePath: "assets/red_custom_tile.png",
-                        onTap: () {},
+                        onTap: () {
+                          pageController.index.value = 6;
+                        },
                         subtitle: "Total Orders",
                         title: "200",
                         footerColor: HexColor("F32D2D"),
@@ -57,7 +60,9 @@ class Dashboard extends StatelessWidget {
                       width: customTileWidth,
                       child: CustomTile(
                         imagePath: "assets/earning_custom_tile.png",
-                        onTap: () {},
+                        onTap: () {
+                          pageController.index.value = 9;
+                        },
                         subtitle: "Total Earning",
                         title: "Rs 1500",
                         footerColor: HexColor("4687FF"),
@@ -68,7 +73,7 @@ class Dashboard extends StatelessWidget {
                       width: customTileWidth,
                       child: CustomTile(
                         imagePath: "assets/green_earning_custom_tile.png",
-                        onTap: () {},
+                        onTap: null,
                         subtitle: "Today's Earning",
                         title: "Rs 1000",
                         footerColor: HexColor("4CAF50"),
@@ -79,7 +84,9 @@ class Dashboard extends StatelessWidget {
                       width: customTileWidth,
                       child: CustomTile(
                         imagePath: "assets/riders_custom_tile.png",
-                        onTap: () {},
+                        onTap: () {
+                          pageController.index.value = 8;
+                        },
                         subtitle: "Total Riders",
                         title: "200",
                         footerColor: HexColor("FF8B36"),
@@ -102,7 +109,9 @@ class Dashboard extends StatelessWidget {
                       width: customTileWidth,
                       child: CustomTile(
                         imagePath: "assets/customer_custom_tile.png",
-                        onTap: () {},
+                        onTap: () {
+                          pageController.index.value = 2;
+                        },
                         subtitle: "Total Customers",
                         title: "200",
                         footerColor: HexColor("FF8B36"),
@@ -113,7 +122,9 @@ class Dashboard extends StatelessWidget {
                       width: customTileWidth,
                       child: CustomTile(
                         imagePath: "assets/category_custom_tile.png",
-                        onTap: () {},
+                        onTap: () {
+                          pageController.index.value = 4;
+                        },
                         subtitle: "Total Categories",
                         title: "15",
                         footerColor: HexColor("F32D2D"),
@@ -124,7 +135,9 @@ class Dashboard extends StatelessWidget {
                       width: customTileWidth,
                       child: CustomTile(
                         imagePath: "assets/products_custom_tile.png",
-                        onTap: () {},
+                        onTap: () {
+                          pageController.index.value = 5;
+                        },
                         subtitle: "Total Products",
                         title: "200",
                         footerColor: HexColor("4687FF"),
@@ -135,7 +148,9 @@ class Dashboard extends StatelessWidget {
                       width: customTileWidth,
                       child: CustomTile(
                         imagePath: "assets/vendors_custom_tile.png",
-                        onTap: () {},
+                        onTap: () {
+                          pageController.index.value = 3;
+                        },
                         subtitle: "Total Vendors",
                         title: "200",
                         footerColor: HexColor("4CAF50"),

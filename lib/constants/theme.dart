@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart';
 
 ThemeData lightTheme = ThemeData.light().copyWith(
+  primaryColor: accentColor,
   textTheme: GoogleFonts.interTextTheme(
     ThemeData.light().textTheme,
   ),

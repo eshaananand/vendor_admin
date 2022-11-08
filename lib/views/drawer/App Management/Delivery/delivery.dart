@@ -3,13 +3,13 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:vendor_admin/views/widgets/bottom_bar.dart';
 import 'package:vendor_admin/views/widgets/custom_tile.dart';
 
-import '../../../constants/colors.dart';
-import '../../../constants/size.dart';
-import '../../../constants/theme.dart';
+import '../../../../constants/colors.dart';
+import '../../../../constants/size.dart';
+import '../../../../constants/theme.dart';
 
-class Products extends StatelessWidget {
+class Delivery extends StatelessWidget {
   var pageController;
-  Products({super.key, this.pageController});
+  Delivery({super.key, this.pageController});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class Products extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Text(
-                  "Products",
+                  "Delivery",
                   style: fontStyle(
                     color: HexColor("555454"),
                     size: 25,
@@ -41,28 +41,47 @@ class Products extends StatelessWidget {
                   child: Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(right: 20.0),
+                        padding: const EdgeInsets.only(right: 10.0),
                         child: SizedBox(
                           height: customTileHeight,
                           width: customTileWidth,
                           child: CustomTile(
-                            imagePath: "assets/vendors_custom_tile.png",
-                            onTap: () {},
-                            title: "New Products \nListed",
-                            footerColor: HexColor("4CAF50"),
+                            imagePath: "assets/riders_custom_tile.png",
+                            onTap: () {
+                              pageController.index.value = 36;
+                            },
+                            title: "Approve \nDelivery",
+                            footerColor: HexColor("FF8B36"),
                           ),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(right: 20.0),
+                        padding: const EdgeInsets.only(right: 10.0),
                         child: SizedBox(
                           height: customTileHeight,
                           width: customTileWidth,
                           child: CustomTile(
                             imagePath: "assets/category_custom_tile.png",
-                            onTap: () {},
-                            title: "Products \nList",
+                            onTap: () {
+                              pageController.index.value = 37;
+                            },
+                            title: "Delivery \nStatus",
                             footerColor: HexColor("F32D2D"),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10.0),
+                        child: SizedBox(
+                          height: customTileHeight,
+                          width: customTileWidth,
+                          child: CustomTile(
+                            imagePath: "assets/earning_custom_tile.png",
+                            onTap: () {
+                              pageController.index.value = 38;
+                            },
+                            title: "Payment \nHistory",
+                            footerColor: HexColor("4687FF"),
                           ),
                         ),
                       ),
@@ -70,10 +89,12 @@ class Products extends StatelessWidget {
                         height: customTileHeight,
                         width: customTileWidth,
                         child: CustomTile(
-                          imagePath: "assets/products_custom_tile.png",
-                          onTap: () {},
-                          title: "Product &\nDetails",
-                          footerColor: HexColor("4687FF"),
+                          imagePath: "assets/green_earning_custom_tile.png",
+                          onTap: () {
+                            pageController.index.value = 39;
+                          },
+                          title: "Refer &\nEarn",
+                          footerColor: HexColor("4CAF50"),
                         ),
                       ),
                     ],

@@ -3,9 +3,9 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:vendor_admin/views/widgets/bottom_bar.dart';
 import 'package:vendor_admin/views/widgets/custom_tile.dart';
 
-import '../../../constants/colors.dart';
-import '../../../constants/size.dart';
-import '../../../constants/theme.dart';
+import '../../../../constants/colors.dart';
+import '../../../../constants/size.dart';
+import '../../../../constants/theme.dart';
 
 class Payment extends StatelessWidget {
   var pageController;
@@ -49,8 +49,10 @@ class Payment extends StatelessWidget {
                             width: customTileWidth,
                             child: CustomTile(
                               imagePath: "assets/red_earning_custom_tile.png",
-                              onTap: () {},
-                              title: "Delivery \nStatus",
+                              onTap: () {
+                                pageController.index.value = 41;
+                              },
+                              title: "Customer",
                               footerColor: HexColor("F32D2D"),
                             ),
                           ),
@@ -61,10 +63,12 @@ class Payment extends StatelessWidget {
                             height: customTileHeight,
                             width: customTileWidth,
                             child: CustomTile(
-                              imagePath: "assets/riders_custom_tile.png",
-                              onTap: () {},
-                              title: "Approve \nDelivery",
-                              footerColor: HexColor("FF8B36"),
+                              imagePath: "assets/green_earning_custom_tile.png",
+                              onTap: () {
+                                pageController.index.value = 42;
+                              },
+                              title: "Vendor",
+                              footerColor: HexColor("4CAF50"),
                             ),
                           ),
                         ),
@@ -75,8 +79,10 @@ class Payment extends StatelessWidget {
                             width: customTileWidth,
                             child: CustomTile(
                               imagePath: "assets/earning_custom_tile.png",
-                              onTap: () {},
-                              title: "Payment \nHistory",
+                              onTap: () {
+                                pageController.index.value = 43;
+                              },
+                              title: "Delivery",
                               footerColor: HexColor("4687FF"),
                             ),
                           ),

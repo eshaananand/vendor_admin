@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -8,11 +7,10 @@ import 'package:vendor_admin/views/widgets/custom_alert_box.dart';
 import '../../../../constants/size.dart';
 import '../../../../constants/theme.dart';
 import '../../../widgets/bottom_bar.dart';
-import 'banner_edit.dart';
 
-class Banners extends StatelessWidget {
+class ProductList extends StatelessWidget {
   var pageController;
-  Banners({super.key, this.pageController});
+  ProductList({super.key, this.pageController});
 
   List<String> list = <String>['10', '20', '30', '40', '50'];
 
@@ -32,7 +30,7 @@ class Banners extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Text(
-                  "Banner",
+                  "Product List",
                   style: fontStyle(
                     color: HexColor("555454"),
                     size: 25,
@@ -63,24 +61,29 @@ class Banners extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Material(
-                                elevation: 5,
-                                child: Container(
-                                    height: 30,
-                                    width: 120,
-                                    decoration:
-                                        BoxDecoration(color: accentColor),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Icon(Icons.list, color: white),
-                                        Text(
-                                          "  Banner List",
-                                          style: fontStyle(color: white),
-                                        ),
-                                      ],
-                                    )),
+                              Row(
+                                children: [
+                                  Material(
+                                    elevation: 5,
+                                    child: Container(
+                                      height: 30,
+                                      width: 120,
+                                      decoration:
+                                          BoxDecoration(color: accentColor),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(Icons.list, color: white),
+                                          Text(
+                                            " Product List",
+                                            style: fontStyle(color: white),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                               Row(
                                 mainAxisAlignment:
@@ -202,7 +205,7 @@ class Banners extends StatelessWidget {
                                 icon:
                                     const Icon(Icons.edit, color: Colors.blue),
                                 onPressed: () {
-                                  pageController.index.value = 40;
+                                  pageController.index.value = 30;
                                 },
                               ),
                             ),

@@ -26,51 +26,51 @@ class CustomTile extends StatelessWidget {
       body: SizedBox(
         height: customTileHeight,
         width: customTileWidth,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Material(
-              elevation: 15,
-              child: Stack(
-                children: [
-                  Image.asset(
-                    imagePath!,
-                    fit: BoxFit.fitWidth,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10.0, left: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          title!,
-                          style: fontStyle(
-                            color: white,
-                            fontWeight: bold,
-                            size: 28,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10.0),
-                          child: Text(
-                            subtitle,
+        child: InkWell(
+          onTap: onTap,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Material(
+                elevation: 15,
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      imagePath!,
+                      fit: BoxFit.fitWidth,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0, left: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            title!,
                             style: fontStyle(
                               color: white,
                               fontWeight: bold,
-                              size: 20,
+                              size: 28,
                             ),
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10.0),
+                            child: Text(
+                              subtitle,
+                              style: fontStyle(
+                                color: white,
+                                fontWeight: bold,
+                                size: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            InkWell(
-              onTap: onTap,
-              child: Material(
+              Material(
                 elevation: 15,
                 child: Container(
                     height: 32,
@@ -97,8 +97,8 @@ class CustomTile extends StatelessWidget {
                       ],
                     )),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

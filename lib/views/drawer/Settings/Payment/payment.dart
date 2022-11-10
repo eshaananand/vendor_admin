@@ -15,14 +15,14 @@ class Payment extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          body: Padding(
-        padding: const EdgeInsets.only(left: 60.0, top: 10),
-        child: SingleChildScrollView(
+          body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 60.0, top: 10),
           child: SizedBox(
-            height: h,
+            height: h * 1.2,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(25.0),
@@ -37,58 +37,55 @@ class Payment extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(bottom: h / 2),
-                  child: SizedBox(
-                    width: w * 0.8,
-                    height: 241,
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 10.0),
-                          child: SizedBox(
-                            height: customTileHeight,
-                            width: customTileWidth,
-                            child: CustomTile(
-                              imagePath: "assets/red_earning_custom_tile.png",
-                              onTap: () {
-                                pageController.index.value = 41;
-                              },
-                              title: "Customer",
-                              footerColor: HexColor("F32D2D"),
-                            ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10.0),
+                        child: SizedBox(
+                          height: customTileHeight,
+                          width: customTileWidth,
+                          child: CustomTile(
+                            imagePath: "assets/red_earning_custom_tile.png",
+                            onTap: () {
+                              pageController.index.value = 41;
+                            },
+                            title: "Customer",
+                            footerColor: HexColor("F32D2D"),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 10.0),
-                          child: SizedBox(
-                            height: customTileHeight,
-                            width: customTileWidth,
-                            child: CustomTile(
-                              imagePath: "assets/green_earning_custom_tile.png",
-                              onTap: () {
-                                pageController.index.value = 42;
-                              },
-                              title: "Vendor",
-                              footerColor: HexColor("4CAF50"),
-                            ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10.0),
+                        child: SizedBox(
+                          height: customTileHeight,
+                          width: customTileWidth,
+                          child: CustomTile(
+                            imagePath: "assets/green_earning_custom_tile.png",
+                            onTap: () {
+                              pageController.index.value = 42;
+                            },
+                            title: "Vendor",
+                            footerColor: HexColor("4CAF50"),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 10.0),
-                          child: SizedBox(
-                            height: customTileHeight,
-                            width: customTileWidth,
-                            child: CustomTile(
-                              imagePath: "assets/earning_custom_tile.png",
-                              onTap: () {
-                                pageController.index.value = 43;
-                              },
-                              title: "Delivery",
-                              footerColor: HexColor("4687FF"),
-                            ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10.0),
+                        child: SizedBox(
+                          height: customTileHeight,
+                          width: customTileWidth,
+                          child: CustomTile(
+                            imagePath: "assets/earning_custom_tile.png",
+                            onTap: () {
+                              pageController.index.value = 43;
+                            },
+                            title: "Delivery",
+                            footerColor: HexColor("4687FF"),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 const BottomBar(),

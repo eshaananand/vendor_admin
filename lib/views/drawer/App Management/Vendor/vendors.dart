@@ -11,7 +11,38 @@ import '../../../../constants/theme.dart';
 class Vendors extends StatelessWidget {
   var pageController;
   Vendors({super.key, required this.pageController});
-
+  final List<Map<String, dynamic>> listOfColumns = [
+    {
+      "Image": "assets/vegetable_round.png",
+      "Shop": "Tripathi Store",
+      "Address": "234, Purbanchal School Road\nKolkata- 700084",
+      "Action": const Icon(Icons.edit),
+    },
+    {
+      "Image": "assets/vegetable_round.png",
+      "Shop": "Tripathi Store",
+      "Address": "234, Purbanchal School Road\nKolkata- 700084",
+      "Action": const Icon(Icons.edit),
+    },
+    {
+      "Image": "assets/vegetable_round.png",
+      "Shop": "Tripathi Store",
+      "Address": "234, Purbanchal School Road Kolkata- 700084",
+      "Action": const Icon(Icons.edit),
+    },
+    {
+      "Image": "assets/vegetable_round.png",
+      "Shop": "Tripathi Store",
+      "Address": "234, Purbanchal School Road Kolkata- 700084",
+      "Action": const Icon(Icons.edit),
+    },
+    {
+      "Image": "assets/vegetable_round.png",
+      "Shop": "Tripathi Store",
+      "Address": "234, Purbanchal School Road Kolkata- 700084",
+      "Action": const Icon(Icons.edit),
+    }
+  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -202,94 +233,57 @@ class Vendors extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Column(
-                      children: [
-                        Padding(
-                          padding:
-                              const EdgeInsets.only(left: 15.0, bottom: 40),
-                          child: Container(
-                            width: w * 0.4,
-                            height: h * 0.6,
-                            color: Colors.white,
-                            child: Table(
-                              columnWidths: const {
-                                0: FlexColumnWidth(2),
-                                1: FlexColumnWidth(3),
-                                2: FlexColumnWidth(4),
-                                3: FlexColumnWidth(2),
-                              },
-                              children: [
-                                TableRow(
-                                    decoration: BoxDecoration(
-                                      color: accentColor,
-                                    ),
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 6, left: 20, bottom: 10),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              "Shops",
-                                              style: fontStyle(
-                                                  color: white,
-                                                  size: 16,
-                                                  fontWeight: bold),
-                                            ),
-                                            const SizedBox(
-                                              height: 10,
-                                            ),
-                                            Text(
-                                              'Image',
-                                              style: fontStyle(
-                                                color: white,
-                                                size: 14,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 35, left: 20, bottom: 10),
-                                        child: Text('Shop',
-                                            style: fontStyle(
-                                              color: white,
-                                              size: 15,
-                                            )),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 35, left: 20, bottom: 10),
-                                        child: Text('Address',
-                                            style: fontStyle(
-                                              color: white,
-                                              size: 15,
-                                            )),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 35, left: 20, bottom: 10),
-                                        child: Text('Action',
-                                            style: fontStyle(
-                                              color: white,
-                                              size: 15,
-                                            )),
-                                      ),
-                                    ]),
-                                const TableRow(children: [
-                                  Text('Cell 4'),
-                                  Text('Cell 5'),
-                                  Text('Cell 6'),
-                                  Text('Cell 6'),
-                                ])
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15.0, bottom: 40),
+                      child: Container(
+                          width: w * 0.4,
+                          height: h * 0.6,
+                          color: Colors.white,
+                          child: SingleChildScrollView(
+                            child: DataTable(
+                              dataRowHeight: 80,
+                              // dividerThickness: null,
+                              dividerThickness: 0,
+                              dataTextStyle: fontStyle(),
+
+                              headingTextStyle: fontStyle(
+                                color: white,
+                                fontWeight: bold,
+                                size: 15,
+                              ),
+
+                              headingRowColor:
+                                  MaterialStateProperty.all<Color>(accentColor),
+                              columns: const [
+                                DataColumn(label: Text('Image')),
+                                DataColumn(label: Text('Shop')),
+                                DataColumn(label: Text('Address')),
+                                DataColumn(label: Text('Action')),
                               ],
+                              rows: listOfColumns.asMap().entries.map(
+                                ((entry) {
+                                  int idx = entry.key;
+
+                                  return DataRow(
+                                    color: idx % 2 == 0
+                                        ? MaterialStateProperty.all<Color>(
+                                            HexColor("D6D4D4"))
+                                        : MaterialStateProperty.all<Color>(
+                                            white),
+                                    cells: <DataCell>[
+                                      DataCell(
+                                        Image.asset(entry.value["Image"],
+                                            height: 45),
+                                      ), //Extracting from Map element the value
+                                      DataCell(Text(entry.value["Shop"])),
+                                      DataCell(Text(entry.value["Address"])),
+                                      DataCell(entry.value["Action"]),
+                                    ],
+                                  );
+                                }),
+                              ).toList(),
                             ),
-                          ),
-                        ),
-                      ],
+                          )),
                     ),
                   ],
                 ),

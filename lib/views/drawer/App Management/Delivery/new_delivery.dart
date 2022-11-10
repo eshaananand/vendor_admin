@@ -10,38 +10,6 @@ import '../../../../constants/theme.dart';
 import '../../../widgets/bottom_bar.dart';
 
 class NewDelivery extends StatelessWidget {
-  final List<Map<String, dynamic>> listOfColumns = [
-    {
-      "Image": "assets/vegetable_round.png",
-      "Shop": "Tripathi Store",
-      "Address": "234, Purbanchal School Road\nKolkata- 700084",
-      "Action": const Icon(Icons.edit),
-    },
-    {
-      "Image": "assets/vegetable_round.png",
-      "Shop": "Tripathi Store",
-      "Address": "234, Purbanchal School Road\nKolkata- 700084",
-      "Action": const Icon(Icons.edit),
-    },
-    {
-      "Image": "assets/vegetable_round.png",
-      "Shop": "Tripathi Store",
-      "Address": "234, Purbanchal School Road Kolkata- 700084",
-      "Action": const Icon(Icons.edit),
-    },
-    {
-      "Image": "assets/vegetable_round.png",
-      "Shop": "Tripathi Store",
-      "Address": "234, Purbanchal School Road Kolkata- 700084",
-      "Action": const Icon(Icons.edit),
-    },
-    {
-      "Image": "assets/vegetable_round.png",
-      "Shop": "Tripathi Store",
-      "Address": "234, Purbanchal School Road Kolkata- 700084",
-      "Action": const Icon(Icons.edit),
-    }
-  ];
   var pageController;
   NewDelivery({super.key, this.pageController});
 

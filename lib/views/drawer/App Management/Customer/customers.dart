@@ -42,6 +42,48 @@ class Customers extends StatelessWidget {
       "Shop": "Tripathi Store",
       "Address": "234, Purbanchal School Road Kolkata- 700084",
       "Action": const Icon(Icons.edit),
+    },
+    {
+      "Image": "assets/vegetable_round.png",
+      "Shop": "Tripathi Store",
+      "Address": "234, Purbanchal School Road Kolkata- 700084",
+      "Action": const Icon(Icons.edit),
+    },
+    {
+      "Image": "assets/vegetable_round.png",
+      "Shop": "Tripathi Store",
+      "Address": "234, Purbanchal School Road Kolkata- 700084",
+      "Action": const Icon(Icons.edit),
+    },
+    {
+      "Image": "assets/vegetable_round.png",
+      "Shop": "Tripathi Store",
+      "Address": "234, Purbanchal School Road Kolkata- 700084",
+      "Action": const Icon(Icons.edit),
+    },
+    {
+      "Image": "assets/vegetable_round.png",
+      "Shop": "Tripathi Store",
+      "Address": "234, Purbanchal School Road Kolkata- 700084",
+      "Action": const Icon(Icons.edit),
+    },
+    {
+      "Image": "assets/vegetable_round.png",
+      "Shop": "Tripathi Store",
+      "Address": "234, Purbanchal School Road Kolkata- 700084",
+      "Action": const Icon(Icons.edit),
+    },
+    {
+      "Image": "assets/vegetable_round.png",
+      "Shop": "Tripathi Store",
+      "Address": "234, Purbanchal School Road Kolkata- 700084",
+      "Action": const Icon(Icons.edit),
+    },
+    {
+      "Image": "assets/vegetable_round.png",
+      "Shop": "Tripathi Store",
+      "Address": "234, Purbanchal School Road Kolkata- 700084",
+      "Action": const Icon(Icons.edit),
     }
   ];
   @override

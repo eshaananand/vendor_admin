@@ -12,10 +12,10 @@ class CustomAlertBox {
     GestureTapCallback? onCancelTap,
   }) {
     return Get.defaultDialog(
-      titlePadding: const EdgeInsets.only(top: 30),
+      titlePadding: const EdgeInsets.only(top: 20),
       title: "Are you sure you want \nto delete?",
       content: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 30.0),
+        padding: const EdgeInsets.symmetric(vertical: 20.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -44,7 +44,7 @@ class CustomAlertBox {
               child: InkWell(
                 onTap: onCancelTap,
                 child: Container(
-                  width: 60,
+                  width: 70,
                   height: 20,
                   decoration: BoxDecoration(
                     color: HexColor("555454").withOpacity(0.57),

@@ -7,6 +7,7 @@ import 'package:vendor_admin/views/drawer/App%20Management/Orders/edit_orders.da
 import 'package:vendor_admin/views/drawer/App%20Management/Orders/order_details.dart';
 import 'package:vendor_admin/views/drawer/Settings/Banner/banner_edit.dart';
 import 'package:vendor_admin/views/pages/home_page.dart';
+import 'package:vendor_admin/views/pages/login_page.dart';
 
 import 'constants/theme.dart';
 
@@ -24,8 +25,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
 
       theme: lightTheme,
-      home: HomePage(),
-      // home: BannerEdit(),
+      // home: HomePage(),
+      home: LoginPage(),
     );
   }
 }

@@ -12,7 +12,9 @@ class CustomFormField extends StatelessWidget {
     required this.subtitle,
     this.line = 1,
     this.width = 190,
+    this.onChanged,
   });
+  ValueChanged<String>? onChanged;
   TextEditingController controller;
   int line;
   double width = 190;
@@ -35,6 +37,7 @@ class CustomFormField extends StatelessWidget {
                     child: SizedBox(
                       width: width,
                       child: TextFormField(
+                        onChanged: onChanged,
                         maxLines: line,
                         minLines: line,
                         controller: controller,

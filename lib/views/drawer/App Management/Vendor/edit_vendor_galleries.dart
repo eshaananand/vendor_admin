@@ -61,7 +61,7 @@ class EditVendorGalleries extends StatelessWidget {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    pageController.index.value = 20;
+                                    pageController.index.value = 19;
                                   },
                                   child: Row(
                                     children: [

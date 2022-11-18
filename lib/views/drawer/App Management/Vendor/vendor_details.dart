@@ -13,10 +13,137 @@ class VendorDetails extends StatelessWidget {
   VendorDetails({super.key, this.pageController});
 
   List<String> list = <String>['10', '20', '30', '40', '50'];
-  var selected = 0.obs;
+
   @override
   Widget build(BuildContext context) {
     var dropdownValue = list.first.obs;
+
+    final List<Map<String, dynamic>> listOfColumns = [
+      {
+        "NAME": "Steak",
+        "ADDRESS": "234, Purbanchal School Road",
+        "PHONE": "123456789",
+        "AVABILITY": "YES",
+        "ACTIVE": "NO",
+        "TYPE": "Tools",
+        "ACTION": Row(
+          children: [
+            Center(
+              child: IconButton(
+                icon: const Icon(Icons.edit, color: Colors.blue),
+                onPressed: () {
+                  pageController.index.value = 23;
+                },
+              ),
+            ),
+            Center(
+              child: IconButton(
+                icon: Icon(Icons.delete, color: accentColor),
+                onPressed: () {
+                  CustomAlertBox.dialogBox(
+                    onCancelTap: () {},
+                    onYesTap: () {},
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      },
+      {
+        "NAME": "Steak",
+        "ADDRESS": "234, Purbanchal School Road",
+        "PHONE": "123456789",
+        "AVABILITY": "YES",
+        "ACTIVE": "NO",
+        "TYPE": "Tools",
+        "ACTION": Row(
+          children: [
+            Center(
+              child: IconButton(
+                icon: const Icon(Icons.edit, color: Colors.blue),
+                onPressed: () {
+                  pageController.index.value = 23;
+                },
+              ),
+            ),
+            Center(
+              child: IconButton(
+                icon: Icon(Icons.delete, color: accentColor),
+                onPressed: () {
+                  CustomAlertBox.dialogBox(
+                    onCancelTap: () {},
+                    onYesTap: () {},
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      },
+      {
+        "NAME": "Steak",
+        "ADDRESS": "234, Purbanchal School Road",
+        "PHONE": "123456789",
+        "AVABILITY": "YES",
+        "ACTIVE": "NO",
+        "TYPE": "Tools",
+        "ACTION": Row(
+          children: [
+            Center(
+              child: IconButton(
+                icon: const Icon(Icons.edit, color: Colors.blue),
+                onPressed: () {
+                  pageController.index.value = 23;
+                },
+              ),
+            ),
+            Center(
+              child: IconButton(
+                icon: Icon(Icons.delete, color: accentColor),
+                onPressed: () {
+                  CustomAlertBox.dialogBox(
+                    onCancelTap: () {},
+                    onYesTap: () {},
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      },
+      {
+        "NAME": "Steak",
+        "ADDRESS": "234, Purbanchal School Road",
+        "PHONE": "123456789",
+        "AVABILITY": "YES",
+        "ACTIVE": "YES",
+        "TYPE": "Tools",
+        "ACTION": Row(
+          children: [
+            Center(
+              child: IconButton(
+                icon: const Icon(Icons.edit, color: Colors.blue),
+                onPressed: () {
+                  pageController.index.value = 23;
+                },
+              ),
+            ),
+            Center(
+              child: IconButton(
+                icon: Icon(Icons.delete, color: accentColor),
+                onPressed: () {
+                  CustomAlertBox.dialogBox(
+                    onCancelTap: () {},
+                    onYesTap: () {},
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      },
+    ];
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -65,18 +192,14 @@ class VendorDetails extends StatelessWidget {
                                 Row(
                                   children: [
                                     InkWell(
-                                      onTap: () {
-                                        selected.value = 0;
-                                      },
+                                      onTap: () {},
                                       child: Material(
                                         elevation: 5,
                                         child: Container(
                                           height: 30,
                                           width: 120,
-                                          decoration: BoxDecoration(
-                                              color: selected.value == 0
-                                                  ? accentColor
-                                                  : HexColor("555454")),
+                                          decoration:
+                                              BoxDecoration(color: accentColor),
                                           child: Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
@@ -88,37 +211,6 @@ class VendorDetails extends StatelessWidget {
                                               ),
                                             ],
                                           ),
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: padding(left: 10),
-                                      child: InkWell(
-                                        onTap: () {
-                                          selected.value = 1;
-                                        },
-                                        child: Material(
-                                          elevation: 5,
-                                          child: Container(
-                                              height: 30,
-                                              width: 140,
-                                              decoration: BoxDecoration(
-                                                  color: selected.value == 1
-                                                      ? accentColor
-                                                      : HexColor("555454")),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Icon(Icons.list,
-                                                      color: white),
-                                                  Text(
-                                                    "  Sub-Category List",
-                                                    style:
-                                                        fontStyle(color: white),
-                                                  ),
-                                                ],
-                                              )),
                                         ),
                                       ),
                                     ),
@@ -171,33 +263,31 @@ class VendorDetails extends StatelessWidget {
                                     child: Row(
                                       children: [
                                         const Text("Show  "),
-                                        Obx(
-                                          () => Container(
-                                            color: white,
-                                            height: 30,
-                                            child: DropdownButton<String>(
-                                              value: dropdownValue.value,
-                                              icon: const Icon(
-                                                  Icons.arrow_drop_down),
-                                              style: const TextStyle(
-                                                color: Colors.black,
-                                              ),
-                                              onChanged: (String? value) {
-                                                dropdownValue.value = value!;
-                                              },
-                                              underline: const SizedBox(
-                                                height: 0,
-                                                width: 0,
-                                              ),
-                                              items: list.map<
-                                                      DropdownMenuItem<String>>(
-                                                  (String value) {
-                                                return DropdownMenuItem<String>(
-                                                  value: value,
-                                                  child: Text(value),
-                                                );
-                                              }).toList(),
+                                        Container(
+                                          color: white,
+                                          height: 30,
+                                          child: DropdownButton<String>(
+                                            value: dropdownValue.value,
+                                            icon: const Icon(
+                                                Icons.arrow_drop_down),
+                                            style: const TextStyle(
+                                              color: Colors.black,
                                             ),
+                                            onChanged: (String? value) {
+                                              dropdownValue.value = value!;
+                                            },
+                                            underline: const SizedBox(
+                                              height: 0,
+                                              width: 0,
+                                            ),
+                                            items: list
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
                                           ),
                                         ),
                                         const Text("  Entries  "),
@@ -240,29 +330,162 @@ class VendorDetails extends StatelessWidget {
                                   ),
                                 ],
                               )),
-                          Row(
-                            children: [
-                              Center(
-                                child: IconButton(
-                                  icon: const Icon(Icons.edit,
-                                      color: Colors.blue),
-                                  onPressed: () {
-                                    pageController.index.value = 23;
-                                  },
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15.0),
+                            child: SingleChildScrollView(
+                              child: Container(
+                                  width: w * 0.8,
+                                  height: h * 0.7,
+                                  color: Colors.white,
+                                  child: SingleChildScrollView(
+                                    child: DataTable(
+                                      dataRowHeight: 80,
+                                      // dividerThickness: null,
+                                      dividerThickness: 0,
+                                      dataTextStyle: fontStyle(),
+
+                                      headingTextStyle: fontStyle(
+                                        color: white,
+                                        fontWeight: bold,
+                                        size: 15,
+                                      ),
+
+                                      headingRowColor:
+                                          MaterialStateProperty.all<Color>(
+                                              accentColor),
+                                      columns: const [
+                                        DataColumn(label: Text('NAME')),
+                                        DataColumn(label: Text('ADDRESS')),
+                                        DataColumn(label: Text('PHONE')),
+                                        DataColumn(label: Text('AVABILITY')),
+                                        DataColumn(label: Text('ACTIVE')),
+                                        DataColumn(label: Text('TYPE')),
+                                        DataColumn(label: Text('ACTION')),
+                                      ],
+                                      rows: listOfColumns.asMap().entries.map(
+                                        ((entry) {
+                                          bool isActive =
+                                              entry.value["ACTIVE"] == "NO"
+                                                  ? false
+                                                  : true;
+                                          bool isAvailable =
+                                              entry.value["AVABILITY"] == "NO"
+                                                  ? false
+                                                  : true;
+
+                                          return DataRow(
+                                            cells: <DataCell>[
+                                              DataCell(
+                                                  Text(entry.value["NAME"])),
+                                              DataCell(
+                                                  Text(entry.value["ADDRESS"])),
+                                              DataCell(
+                                                  Text(entry.value["PHONE"])),
+                                              DataCell(
+                                                  Text(entry.value["AVABILITY"],
+                                                      style: fontStyle(
+                                                        color: isAvailable
+                                                            ? Colors.green
+                                                            : accentColor,
+                                                      ))),
+                                              DataCell(
+                                                  Text(entry.value["ACTIVE"],
+                                                      style: fontStyle(
+                                                        color: isActive
+                                                            ? Colors.green
+                                                            : accentColor,
+                                                      ))),
+                                              DataCell(
+                                                  Text(entry.value["TYPE"])),
+                                              DataCell(entry.value["ACTION"]),
+                                            ],
+                                          );
+                                        }),
+                                      ).toList(),
+                                    ),
+                                  )),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15.0, top: 15),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Showing 1 to 10 out of 20 entries",
+                                  style: fontStyle(
+                                    fontWeight: FontWeight.w500,
+                                    size: 12,
+                                  ),
                                 ),
-                              ),
-                              Center(
-                                child: IconButton(
-                                  icon: Icon(Icons.delete, color: accentColor),
-                                  onPressed: () {
-                                    CustomAlertBox.dialogBox(
-                                      onCancelTap: () {},
-                                      onYesTap: () {},
-                                    );
-                                  },
-                                ),
-                              ),
-                            ],
+                                Row(
+                                  children: [
+                                    Card(
+                                      elevation: 5,
+                                      color: HexColor("D6D4D4"),
+                                      child: SizedBox(
+                                          height: 20,
+                                          width: 70,
+                                          child: Center(
+                                            child: Text(
+                                              "Previous",
+                                              style: fontStyle(
+                                                color: white,
+                                                size: 13,
+                                              ),
+                                            ),
+                                          )),
+                                    ),
+                                    Container(
+                                      height: 25,
+                                      width: 30,
+                                      decoration: const BoxDecoration(
+                                        color: Colors.red,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          "1",
+                                          style: fontStyle(
+                                              color: white, fontWeight: bold),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 25,
+                                      width: 30,
+                                      decoration: BoxDecoration(
+                                        color: HexColor("D6D4D4"),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          "2",
+                                          style: fontStyle(
+                                              color: white, fontWeight: bold),
+                                        ),
+                                      ),
+                                    ),
+                                    Card(
+                                      elevation: 5,
+                                      color: accentColor,
+                                      child: SizedBox(
+                                          height: 20,
+                                          width: 70,
+                                          child: Center(
+                                            child: Text(
+                                              "Next",
+                                              style: fontStyle(
+                                                color: white,
+                                                size: 13,
+                                              ),
+                                            ),
+                                          )),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         ],
                       ),

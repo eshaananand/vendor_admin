@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vendor_admin/test.dart';
-import 'package:vendor_admin/views/drawer/App%20Management/Categories/edit_categories.dart';
-import 'package:vendor_admin/views/drawer/App%20Management/Coupons/create_coupons.dart';
-import 'package:vendor_admin/views/drawer/App%20Management/Orders/edit_orders.dart';
-import 'package:vendor_admin/views/drawer/App%20Management/Orders/order_details.dart';
-import 'package:vendor_admin/views/drawer/Settings/Banner/banner_edit.dart';
-import 'package:vendor_admin/views/pages/home_page.dart';
 import 'package:vendor_admin/views/pages/login_page.dart';
-
 import 'constants/theme.dart';
 
 void main() {

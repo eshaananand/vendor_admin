@@ -16,6 +16,81 @@ class Order extends StatelessWidget {
   var selected = 0.obs;
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> orderDetails = [
+      {
+        "ID": "#1",
+        "CLIENTS": "DEMO",
+        "ORDER-STATUS": "READY",
+        "AMOUNT": "\$20",
+        "PAYMENT-STATUS": "Paid",
+        "METHOD": "shOP X",
+        "ACTION": Row(
+          children: [
+            Center(
+              child: IconButton(
+                icon: const Icon(Icons.remove_red_eye, color: Colors.blue),
+                onPressed: () {
+                  pageController.index.value = 33;
+                },
+              ),
+            ),
+            Center(
+              child: IconButton(
+                icon: const Icon(Icons.edit, color: Colors.blue),
+                onPressed: () {
+                  pageController.index.value = 34;
+                },
+              ),
+            ),
+            Center(
+              child: IconButton(
+                icon: Icon(Icons.delete, color: accentColor),
+                onPressed: () {
+                  CustomAlertBox.dialogBox(
+                    onCancelTap: () {},
+                    onYesTap: () {},
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      },
+    ];
+
+    final List<Map<String, dynamic>> orderStatus = [
+      {
+        "STATUS": "#1",
+        "UPDATED-AT": "DEMO",
+        "ACTION": Center(
+          child: IconButton(
+            icon: Icon(Icons.delete, color: accentColor),
+            onPressed: () {
+              CustomAlertBox.dialogBox(
+                onCancelTap: () {},
+                onYesTap: () {},
+              );
+            },
+          ),
+        ),
+      },
+      {
+        "STATUS": "#1",
+        "UPDATED-AT": "DEMO",
+        "ACTION": Center(
+          child: IconButton(
+            icon: Icon(Icons.delete, color: accentColor),
+            onPressed: () {
+              CustomAlertBox.dialogBox(
+                onCancelTap: () {},
+                onYesTap: () {},
+              );
+            },
+          ),
+        ),
+      },
+    ];
+
     var dropdownValue = list.first.obs;
     return Scaffold(
       body: SingleChildScrollView(
@@ -240,38 +315,247 @@ class Order extends StatelessWidget {
                                   ),
                                 ],
                               )),
-                          Row(
-                            children: [
-                              Center(
-                                child: IconButton(
-                                  icon: const Icon(Icons.remove_red_eye,
-                                      color: Colors.blue),
-                                  onPressed: () {
-                                    pageController.index.value = 33;
-                                  },
+                          // Row(
+                          //   children: [
+                          //     Center(
+                          //       child: IconButton(
+                          //         icon: const Icon(Icons.remove_red_eye,
+                          //             color: Colors.blue),
+                          //         onPressed: () {
+                          //           pageController.index.value = 33;
+                          //         },
+                          //       ),
+                          //     ),
+                          //     Center(
+                          //       child: IconButton(
+                          //         icon: const Icon(Icons.edit,
+                          //             color: Colors.blue),
+                          //         onPressed: () {
+                          //           pageController.index.value = 34;
+                          //         },
+                          //       ),
+                          //     ),
+                          //     Center(
+                          //       child: IconButton(
+                          //         icon: Icon(Icons.delete, color: accentColor),
+                          //         onPressed: () {
+                          //           CustomAlertBox.dialogBox(
+                          //             onCancelTap: () {},
+                          //             onYesTap: () {},
+                          //           );
+                          //         },
+                          //       ),
+                          //     ),
+                          //   ],
+                          // ),
+                          selected.value == 0
+                              ? Padding(
+                                  padding: const EdgeInsets.only(top: 15.0),
+                                  child: SingleChildScrollView(
+                                    child: Container(
+                                        width: w * 0.8,
+                                        height: h * 0.7,
+                                        color: Colors.white,
+                                        child: SingleChildScrollView(
+                                          child: DataTable(
+                                            dataRowHeight: 80,
+
+                                            // dividerThickness: null,
+                                            dividerThickness: 0,
+                                            dataTextStyle: fontStyle(),
+
+                                            headingTextStyle: fontStyle(
+                                              color: white,
+                                              fontWeight: bold,
+                                              size: 15,
+                                            ),
+
+                                            headingRowColor:
+                                                MaterialStateProperty.all<
+                                                    Color>(accentColor),
+
+                                            columns: const [
+                                              DataColumn(
+                                                  label: Text('ORDER ID')),
+                                              DataColumn(
+                                                  label: Text('CLIENTS')),
+                                              DataColumn(
+                                                  label: Text('ORDER\nSTATUS')),
+                                              DataColumn(label: Text('AMOUNT')),
+                                              DataColumn(
+                                                  label:
+                                                      Text('PAYMENT\nSTATUS')),
+                                              DataColumn(label: Text('METHOD')),
+                                              DataColumn(label: Text('ACTION')),
+                                            ],
+                                            rows: orderDetails
+                                                .asMap()
+                                                .entries
+                                                .map(
+                                              ((entry) {
+                                                return DataRow(
+                                                  cells: <DataCell>[
+                                                    DataCell(Text(
+                                                        entry.value["ID"])),
+                                                    DataCell(Text(entry
+                                                        .value["CLIENTS"])),
+                                                    DataCell(Text(entry.value[
+                                                        "ORDER-STATUS"])),
+                                                    DataCell(Text(
+                                                        entry.value["AMOUNT"])),
+                                                    DataCell(Text(entry.value[
+                                                        "PAYMENT-STATUS"])),
+                                                    DataCell(Text(
+                                                        entry.value["METHOD"])),
+                                                    DataCell(
+                                                        entry.value["ACTION"]),
+                                                  ],
+                                                );
+                                              }),
+                                            ).toList(),
+                                          ),
+                                        )),
+                                  ),
+                                )
+                              : Padding(
+                                  padding: const EdgeInsets.only(top: 15.0),
+                                  child: SingleChildScrollView(
+                                    child: Container(
+                                        width: w * 0.8,
+                                        height: h * 0.7,
+                                        color: Colors.white,
+                                        child: SingleChildScrollView(
+                                          child: DataTable(
+                                            dataRowHeight: 80,
+
+                                            // dividerThickness: null,
+                                            dividerThickness: 0,
+                                            dataTextStyle: fontStyle(),
+
+                                            headingTextStyle: fontStyle(
+                                              color: white,
+                                              fontWeight: bold,
+                                              size: 15,
+                                            ),
+
+                                            headingRowColor:
+                                                MaterialStateProperty.all<
+                                                    Color>(accentColor),
+
+                                            columns: const [
+                                              DataColumn(label: Text('STATUS')),
+                                              DataColumn(
+                                                  label: Center(
+                                                      child:
+                                                          Text('UPDATED AT'))),
+                                              DataColumn(
+                                                  label: Padding(
+                                                      padding: EdgeInsets.only(
+                                                          left: 150),
+                                                      child: Text(
+                                                        'ACTION',
+                                                      ))),
+                                            ],
+                                            rows:
+                                                orderStatus.asMap().entries.map(
+                                              ((entry) {
+                                                return DataRow(
+                                                  cells: <DataCell>[
+                                                    DataCell(Text(
+                                                        entry.value["STATUS"])),
+                                                    DataCell(Text(entry
+                                                        .value["UPDATED-AT"])),
+                                                    DataCell(
+                                                        entry.value["ACTION"]),
+                                                  ],
+                                                );
+                                              }),
+                                            ).toList(),
+                                          ),
+                                        )),
+                                  ),
                                 ),
-                              ),
-                              Center(
-                                child: IconButton(
-                                  icon: const Icon(Icons.edit,
-                                      color: Colors.blue),
-                                  onPressed: () {
-                                    pageController.index.value = 34;
-                                  },
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15.0, top: 15),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Showing 1 to 10 out of 20 entries",
+                                  style: fontStyle(
+                                    fontWeight: FontWeight.w500,
+                                    size: 12,
+                                  ),
                                 ),
-                              ),
-                              Center(
-                                child: IconButton(
-                                  icon: Icon(Icons.delete, color: accentColor),
-                                  onPressed: () {
-                                    CustomAlertBox.dialogBox(
-                                      onCancelTap: () {},
-                                      onYesTap: () {},
-                                    );
-                                  },
-                                ),
-                              ),
-                            ],
+                                Row(
+                                  children: [
+                                    Card(
+                                      elevation: 5,
+                                      color: HexColor("D6D4D4"),
+                                      child: SizedBox(
+                                          height: 20,
+                                          width: 70,
+                                          child: Center(
+                                            child: Text(
+                                              "Previous",
+                                              style: fontStyle(
+                                                color: white,
+                                                size: 13,
+                                              ),
+                                            ),
+                                          )),
+                                    ),
+                                    Container(
+                                      height: 25,
+                                      width: 30,
+                                      decoration: const BoxDecoration(
+                                        color: Colors.red,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          "1",
+                                          style: fontStyle(
+                                              color: white, fontWeight: bold),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 25,
+                                      width: 30,
+                                      decoration: BoxDecoration(
+                                        color: HexColor("D6D4D4"),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          "2",
+                                          style: fontStyle(
+                                              color: white, fontWeight: bold),
+                                        ),
+                                      ),
+                                    ),
+                                    Card(
+                                      elevation: 5,
+                                      color: accentColor,
+                                      child: SizedBox(
+                                        height: 20,
+                                        width: 70,
+                                        child: Center(
+                                          child: Text(
+                                            "Next",
+                                            style: fontStyle(
+                                              color: white,
+                                              size: 13,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         ],
                       ),

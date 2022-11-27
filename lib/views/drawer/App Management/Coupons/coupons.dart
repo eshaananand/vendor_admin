@@ -16,6 +16,37 @@ class Coupons extends StatelessWidget {
   var selected = 0.obs;
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> listOfColumns = [
+      {
+        "CODE": "CORONA6",
+        "DISCOUNT": "NOT A VIRUS",
+        "DISCRIPTION": "123456789",
+        "EXPIRES": "1 year ago",
+        "ENABLED": "NO",
+        "UPDATED-AT": "1 years ago",
+        "ACTION": Row(
+          children: [
+            Center(
+              child: IconButton(
+                icon: const Icon(Icons.edit, color: Colors.blue),
+                onPressed: () {},
+              ),
+            ),
+            Center(
+              child: IconButton(
+                icon: Icon(Icons.delete, color: accentColor),
+                onPressed: () {
+                  CustomAlertBox.dialogBox(
+                    onCancelTap: () {},
+                    onYesTap: () {},
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      },
+    ];
     var dropdownValue = list.first.obs;
     return Scaffold(
       body: SingleChildScrollView(
@@ -237,27 +268,173 @@ class Coupons extends StatelessWidget {
                                   ),
                                 ],
                               )),
-                          Row(
-                            children: [
-                              Center(
-                                child: IconButton(
-                                  icon: const Icon(Icons.edit,
-                                      color: Colors.blue),
-                                  onPressed: () {},
+                          // Row(
+                          //   children: [
+                          //     Center(
+                          //       child: IconButton(
+                          //         icon: const Icon(Icons.edit,
+                          //             color: Colors.blue),
+                          //         onPressed: () {},
+                          //       ),
+                          //     ),
+                          //     Center(
+                          //       child: IconButton(
+                          //         icon: Icon(Icons.delete, color: accentColor),
+                          //         onPressed: () {
+                          //           CustomAlertBox.dialogBox(
+                          //             onCancelTap: () {},
+                          //             onYesTap: () {},
+                          //           );
+                          //         },
+                          //       ),
+                          //     ),
+                          //   ],
+                          // ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15.0),
+                            child: SingleChildScrollView(
+                              child: Container(
+                                  width: w * 0.8,
+                                  height: h * 0.7,
+                                  color: Colors.white,
+                                  child: SingleChildScrollView(
+                                    child: DataTable(
+                                      dataRowHeight: 80,
+                                      // dividerThickness: null,
+                                      dividerThickness: 0,
+                                      dataTextStyle: fontStyle(),
+
+                                      headingTextStyle: fontStyle(
+                                        color: white,
+                                        fontWeight: bold,
+                                        size: 15,
+                                      ),
+
+                                      headingRowColor:
+                                          MaterialStateProperty.all<Color>(
+                                              accentColor),
+                                      columns: const [
+                                        DataColumn(label: Text('CODE')),
+                                        DataColumn(label: Text('DISCOUNT')),
+                                        DataColumn(label: Text('DESCRIPTION')),
+                                        DataColumn(label: Text('EXPIRES AT')),
+                                        DataColumn(label: Text('ENABLED')),
+                                        DataColumn(label: Text('UPDATED  AT')),
+                                        DataColumn(label: Text('ACTION')),
+                                      ],
+                                      rows: listOfColumns.asMap().entries.map(
+                                        ((entry) {
+                                          return DataRow(
+                                            cells: <DataCell>[
+                                              DataCell(
+                                                  Text(entry.value["CODE"])),
+                                              DataCell(Text(
+                                                  entry.value["DISCOUNT"])),
+                                              DataCell(Text(
+                                                  entry.value["DISCRIPTION"])),
+                                              DataCell(
+                                                  Text(entry.value["EXPIRES"])),
+                                              DataCell(Text(
+                                                entry.value["ENABLED"],
+                                                style: fontStyle(
+                                                  color:
+                                                      entry.value["ENABLED"] ==
+                                                              "Yes"
+                                                          ? Colors.green
+                                                          : accentColor,
+                                                ),
+                                              )),
+                                              DataCell(Text(
+                                                  entry.value["UPDATED-AT"])),
+                                              DataCell(entry.value["ACTION"]),
+                                            ],
+                                          );
+                                        }),
+                                      ).toList(),
+                                    ),
+                                  )),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15.0, top: 15),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Showing 1 to 10 out of 20 entries",
+                                  style: fontStyle(
+                                    fontWeight: FontWeight.w500,
+                                    size: 12,
+                                  ),
                                 ),
-                              ),
-                              Center(
-                                child: IconButton(
-                                  icon: Icon(Icons.delete, color: accentColor),
-                                  onPressed: () {
-                                    CustomAlertBox.dialogBox(
-                                      onCancelTap: () {},
-                                      onYesTap: () {},
-                                    );
-                                  },
-                                ),
-                              ),
-                            ],
+                                Row(
+                                  children: [
+                                    Card(
+                                      elevation: 5,
+                                      color: HexColor("D6D4D4"),
+                                      child: SizedBox(
+                                          height: 20,
+                                          width: 70,
+                                          child: Center(
+                                            child: Text(
+                                              "Previous",
+                                              style: fontStyle(
+                                                color: white,
+                                                size: 13,
+                                              ),
+                                            ),
+                                          )),
+                                    ),
+                                    Container(
+                                      height: 25,
+                                      width: 30,
+                                      decoration: const BoxDecoration(
+                                        color: Colors.red,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          "1",
+                                          style: fontStyle(
+                                              color: white, fontWeight: bold),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 25,
+                                      width: 30,
+                                      decoration: BoxDecoration(
+                                        color: HexColor("D6D4D4"),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          "2",
+                                          style: fontStyle(
+                                              color: white, fontWeight: bold),
+                                        ),
+                                      ),
+                                    ),
+                                    Card(
+                                      elevation: 5,
+                                      color: accentColor,
+                                      child: SizedBox(
+                                          height: 20,
+                                          width: 70,
+                                          child: Center(
+                                            child: Text(
+                                              "Next",
+                                              style: fontStyle(
+                                                color: white,
+                                                size: 13,
+                                              ),
+                                            ),
+                                          )),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         ],
                       ),

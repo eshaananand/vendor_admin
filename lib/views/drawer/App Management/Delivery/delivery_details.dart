@@ -17,6 +17,27 @@ class DeliveryDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> listOfColumns = [
+      {
+        "NAME": "Steak",
+        "LICENSE": "234, Purbanchal School Road",
+        "VEHICLE": "123456789",
+        "PHONE": "YES",
+        "AVAILABLE": "YES",
+        "ACTIVE": "NO",
+        "ACTION": Center(
+          child: IconButton(
+            icon: Icon(Icons.delete, color: accentColor),
+            onPressed: () {
+              CustomAlertBox.dialogBox(
+                onCancelTap: () {},
+                onYesTap: () {},
+              );
+            },
+          ),
+        ),
+      },
+    ];
     var dropdownValue = list.first.obs;
     return Scaffold(
       body: SingleChildScrollView(
@@ -194,16 +215,163 @@ class DeliveryDetails extends StatelessWidget {
                                 ),
                               ],
                             )),
-                        Center(
-                            child: IconButton(
-                          icon: Icon(Icons.delete, color: accentColor),
-                          onPressed: () {
-                            CustomAlertBox.dialogBox(
-                              onCancelTap: () {},
-                              onYesTap: () {},
-                            );
-                          },
-                        ))
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15.0),
+                          child: SingleChildScrollView(
+                            child: Container(
+                                width: w * 0.8,
+                                height: h * 0.7,
+                                color: Colors.white,
+                                child: SingleChildScrollView(
+                                  child: DataTable(
+                                    dataRowHeight: 80,
+                                    // dividerThickness: null,
+                                    dividerThickness: 0,
+                                    dataTextStyle: fontStyle(),
+
+                                    headingTextStyle: fontStyle(
+                                      color: white,
+                                      fontWeight: bold,
+                                      size: 15,
+                                    ),
+
+                                    headingRowColor:
+                                        MaterialStateProperty.all<Color>(
+                                            accentColor),
+                                    columns: const [
+                                      DataColumn(label: Text('NAME')),
+                                      DataColumn(label: Text('LICENSE\nNO.')),
+                                      DataColumn(label: Text('VEHCILE\nNO.')),
+                                      DataColumn(label: Text('PHONE')),
+                                      DataColumn(
+                                          label:
+                                              Text('AVAILABLE\nFOR DELIVERY')),
+                                      DataColumn(label: Text('ACTIVE')),
+                                      DataColumn(label: Text('ACTION')),
+                                    ],
+                                    rows: listOfColumns.asMap().entries.map(
+                                      ((entry) {
+                                        bool isActive =
+                                            entry.value["ACTIVE"] == "NO"
+                                                ? false
+                                                : true;
+                                        bool isAvailable =
+                                            entry.value["AVABILITY"] == "NO"
+                                                ? false
+                                                : true;
+
+                                        return DataRow(
+                                          cells: <DataCell>[
+                                            DataCell(Text(entry.value["NAME"])),
+                                            DataCell(
+                                                Text(entry.value["LICENSE"])),
+                                            DataCell(
+                                                Text(entry.value["VEHICLE"])),
+                                            DataCell(
+                                                Text(entry.value["PHONE"])),
+                                            DataCell(
+                                                Text(entry.value["AVAILABLE"],
+                                                    style: fontStyle(
+                                                      color: isAvailable
+                                                          ? Colors.green
+                                                          : accentColor,
+                                                    ))),
+                                            DataCell(Text(entry.value["ACTIVE"],
+                                                style: fontStyle(
+                                                  color: isActive
+                                                      ? Colors.green
+                                                      : accentColor,
+                                                ))),
+                                            DataCell(entry.value["ACTION"]),
+                                          ],
+                                        );
+                                      }),
+                                    ).toList(),
+                                  ),
+                                )),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15.0, top: 15),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Showing 1 to 10 out of 20 entries",
+                                style: fontStyle(
+                                  fontWeight: FontWeight.w500,
+                                  size: 12,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Card(
+                                    elevation: 5,
+                                    color: HexColor("D6D4D4"),
+                                    child: SizedBox(
+                                        height: 20,
+                                        width: 70,
+                                        child: Center(
+                                          child: Text(
+                                            "Previous",
+                                            style: fontStyle(
+                                              color: white,
+                                              size: 13,
+                                            ),
+                                          ),
+                                        )),
+                                  ),
+                                  Container(
+                                    height: 25,
+                                    width: 30,
+                                    decoration: const BoxDecoration(
+                                      color: Colors.red,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "1",
+                                        style: fontStyle(
+                                            color: white, fontWeight: bold),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 25,
+                                    width: 30,
+                                    decoration: BoxDecoration(
+                                      color: HexColor("D6D4D4"),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "2",
+                                        style: fontStyle(
+                                            color: white, fontWeight: bold),
+                                      ),
+                                    ),
+                                  ),
+                                  Card(
+                                    elevation: 5,
+                                    color: accentColor,
+                                    child: SizedBox(
+                                        height: 20,
+                                        width: 70,
+                                        child: Center(
+                                          child: Text(
+                                            "Next",
+                                            style: fontStyle(
+                                              color: white,
+                                              size: 13,
+                                            ),
+                                          ),
+                                        )),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),

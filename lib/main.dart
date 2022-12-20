@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vendor_admin/constants/colors.dart';
 import 'package:vendor_admin/views/pages/login_page.dart';
 import 'constants/theme.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
 
-      theme: lightTheme,
+      theme: ThemeData(primarySwatch: Colors.red),
       // home: HomePage(),
       home: LoginPage(),
     );

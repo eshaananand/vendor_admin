@@ -331,7 +331,9 @@ class Categories extends StatelessWidget {
                                               DataColumn(label: Text('NAME')),
                                               DataColumn(label: Text('IMAGE')),
                                               DataColumn(
-                                                  label: Text('UPDATED AT')),
+                                                  label: Center(
+                                                      child:
+                                                          Text('UPDATED AT'))),
                                               DataColumn(label: Text('ACTION')),
                                             ],
                                             rows: listOfColumns
@@ -341,8 +343,11 @@ class Categories extends StatelessWidget {
                                               ((entry) {
                                                 return DataRow(
                                                   cells: <DataCell>[
-                                                    DataCell(Text(
-                                                        entry.value["NAME"])),
+                                                    DataCell(
+                                                      Text(
+                                                        entry.value["NAME"],
+                                                      ),
+                                                    ),
                                                     DataCell(Image.asset(
                                                         entry.value["IMAGE"])),
                                                     DataCell(Text(entry

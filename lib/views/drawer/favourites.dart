@@ -457,7 +457,7 @@ class Favourites extends StatelessWidget {
                               )
                             ],
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),

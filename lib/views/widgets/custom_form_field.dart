@@ -13,12 +13,14 @@ class CustomFormField extends StatelessWidget {
     this.line = 1,
     this.width = 190,
     this.onChanged,
+    this.borderRadius = 5.0,
   });
   ValueChanged<String>? onChanged;
   TextEditingController controller;
   int line;
   double width = 190;
   String subtitle;
+  double borderRadius = 5.0;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -45,7 +47,7 @@ class CustomFormField extends StatelessWidget {
                         decoration: InputDecoration(
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5.0),
+                            borderRadius: BorderRadius.circular(borderRadius),
                           ),
                         ),
                       ),

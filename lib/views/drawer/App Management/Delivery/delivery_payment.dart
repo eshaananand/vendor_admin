@@ -17,6 +17,24 @@ class DeliveryPayment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> listOfColumns = [
+      {
+        "PRODUCT": "Steak",
+        "AMOUNT": "1kg",
+        "RECIVER": "Swayam Verma",
+        "DATE": "10-12-2050",
+        "TIME": "7:00PM",
+        "ACTION": IconButton(
+          icon: Icon(Icons.delete, color: accentColor),
+          onPressed: () {
+            CustomAlertBox.dialogBox(
+              onCancelTap: () {},
+              onYesTap: () {},
+            );
+          },
+        ),
+      },
+    ];
     var dropdownValue = list.first.obs;
     return Scaffold(
       body: SingleChildScrollView(
@@ -194,16 +212,149 @@ class DeliveryPayment extends StatelessWidget {
                                 ),
                               ],
                             )),
-                        Center(
-                            child: IconButton(
-                          icon: Icon(Icons.delete, color: accentColor),
-                          onPressed: () {
-                            CustomAlertBox.dialogBox(
-                              onCancelTap: () {},
-                              onYesTap: () {},
-                            );
-                          },
-                        ))
+                        // Center(
+                        //     child: IconButton(
+                        //   icon: Icon(Icons.delete, color: accentColor),
+                        //   onPressed: () {
+                        //     CustomAlertBox.dialogBox(
+                        //       onCancelTap: () {},
+                        //       onYesTap: () {},
+                        //     );
+                        //   },
+                        // ))
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15.0),
+                          child: SingleChildScrollView(
+                            child: Container(
+                                width: w * 0.8,
+                                height: h * 0.7,
+                                color: Colors.white,
+                                child: SingleChildScrollView(
+                                  child: DataTable(
+                                    dataRowHeight: 80,
+                                    // dividerThickness: null,
+                                    dividerThickness: 0,
+                                    dataTextStyle: fontStyle(),
+
+                                    headingTextStyle: fontStyle(
+                                      color: white,
+                                      fontWeight: bold,
+                                      size: 15,
+                                    ),
+
+                                    headingRowColor:
+                                        MaterialStateProperty.all<Color>(
+                                            accentColor),
+                                    columns: const [
+                                      DataColumn(label: Text('PRODUCT')),
+                                      DataColumn(label: Text('AMOUNT')),
+                                      DataColumn(label: Text('RECIVER')),
+                                      DataColumn(label: Text('DATE')),
+                                      DataColumn(label: Text('TIME')),
+                                      DataColumn(label: Text('ACTION')),
+                                    ],
+                                    rows: listOfColumns.asMap().entries.map(
+                                      ((entry) {
+                                        return DataRow(
+                                          cells: <DataCell>[
+                                            DataCell(Text(entry.value[
+                                                "PRODUCT"])), //Extracting from Map element the value
+                                            DataCell(
+                                                Text(entry.value["AMOUNT"])),
+                                            DataCell(
+                                                Text(entry.value["RECIVER"])),
+                                            DataCell(Text(entry.value["DATE"])),
+                                            DataCell(Text(entry.value["TIME"])),
+                                            DataCell(entry.value["ACTION"]),
+                                          ],
+                                        );
+                                      }),
+                                    ).toList(),
+                                  ),
+                                )),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15.0, top: 15),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Showing 1 to 10 out of 20 entries",
+                                style: fontStyle(
+                                  fontWeight: FontWeight.w500,
+                                  size: 12,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Card(
+                                    elevation: 5,
+                                    color: HexColor("D6D4D4"),
+                                    child: SizedBox(
+                                        height: 20,
+                                        width: 70,
+                                        child: Center(
+                                          child: Text(
+                                            "Previous",
+                                            style: fontStyle(
+                                              color: white,
+                                              size: 13,
+                                            ),
+                                          ),
+                                        )),
+                                  ),
+                                  Container(
+                                    height: 25,
+                                    width: 30,
+                                    decoration: const BoxDecoration(
+                                      color: Colors.red,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "1",
+                                        style: fontStyle(
+                                            color: white, fontWeight: bold),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 25,
+                                    width: 30,
+                                    decoration: BoxDecoration(
+                                      color: HexColor("D6D4D4"),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "2",
+                                        style: fontStyle(
+                                            color: white, fontWeight: bold),
+                                      ),
+                                    ),
+                                  ),
+                                  Card(
+                                    elevation: 5,
+                                    color: accentColor,
+                                    child: SizedBox(
+                                        height: 20,
+                                        width: 70,
+                                        child: Center(
+                                          child: Text(
+                                            "Next",
+                                            style: fontStyle(
+                                              color: white,
+                                              size: 13,
+                                            ),
+                                          ),
+                                        )),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),

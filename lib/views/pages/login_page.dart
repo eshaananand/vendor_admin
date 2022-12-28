@@ -20,7 +20,7 @@ class LoginPage extends StatelessWidget {
         child: Material(
             elevation: 10,
             child: SizedBox(
-                height: h * 0.6,
+                height: h * 0.5,
                 width: w * 0.3,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,7 +28,8 @@ class LoginPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 15.0),
                       child: Text("ADMIN LOGIN",
-                          style: fontStyle(color: accentColor, size: 25)),
+                          style: fontStyle(
+                              color: accentColor, size: 25, fontWeight: bold)),
                     ),
                     // TextFormField(
                     //   decoration: const InputDecoration(
@@ -47,7 +48,7 @@ class LoginPage extends StatelessWidget {
                     //   },
                     // )
                     Padding(
-                      padding: EdgeInsets.fromLTRB(40, 60, 40, 20),
+                      padding: EdgeInsets.fromLTRB(40, 30, 40, 20),
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),

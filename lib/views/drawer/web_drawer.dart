@@ -24,7 +24,7 @@ class WebDrawer extends StatelessWidget {
             Container(
               height: h * 0.2,
               width: double.infinity,
-              color: HexColor("FD2E2E").withOpacity(0.9),
+              color: accentColor,
               child: Center(
                 child: Text(
                   "Logo",

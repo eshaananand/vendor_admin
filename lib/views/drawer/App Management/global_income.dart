@@ -14,6 +14,43 @@ class GlobalIncome extends StatelessWidget {
   GlobalIncome({super.key, this.pageController});
 
   List<String> list = <String>['10', '20', '30', '40', '50'];
+  var isApplied = false.obs;
+
+  final List<Map<String, dynamic>> listOfColumns = [
+    {
+      "DATE": "06/11/2022",
+      "TOTAL": "200",
+      "PERCENT": "10",
+      "PAYMENT": "APPLY",
+      "ACTION": Row(
+        children: [
+          Center(
+            child: IconButton(
+              icon: const Icon(Icons.remove_red_eye, color: Colors.blue),
+              onPressed: () {},
+            ),
+          ),
+          Center(
+            child: IconButton(
+              icon: const Icon(Icons.edit, color: Colors.blue),
+              onPressed: () {},
+            ),
+          ),
+          Center(
+            child: IconButton(
+              icon: Icon(Icons.delete, color: accentColor),
+              onPressed: () {
+                CustomAlertBox.dialogBox(
+                  onCancelTap: () {},
+                  onYesTap: () {},
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -194,35 +231,207 @@ class GlobalIncome extends StatelessWidget {
                                 ),
                               ],
                             )),
-                        Row(
-                          children: [
-                            Center(
-                              child: IconButton(
-                                icon: const Icon(Icons.remove_red_eye,
-                                    color: Colors.blue),
-                                onPressed: () {},
-                              ),
-                            ),
-                            Center(
-                              child: IconButton(
-                                icon:
-                                    const Icon(Icons.edit, color: Colors.blue),
-                                onPressed: () {},
-                              ),
-                            ),
-                            Center(
-                              child: IconButton(
-                                icon: Icon(Icons.delete, color: accentColor),
-                                onPressed: () {
-                                  CustomAlertBox.dialogBox(
-                                    onCancelTap: () {},
-                                    onYesTap: () {},
-                                  );
-                                },
-                              ),
-                            ),
-                          ],
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15.0),
+                          child: SingleChildScrollView(
+                            child: Container(
+                                width: w * 0.8,
+                                height: h * 0.7,
+                                color: Colors.white,
+                                child: SingleChildScrollView(
+                                  child: DataTable(
+                                    dataRowHeight: 80,
+                                    // dividerThickness: null,
+                                    dividerThickness: 0,
+                                    dataTextStyle: fontStyle(),
+
+                                    headingTextStyle: fontStyle(
+                                      color: white,
+                                      fontWeight: bold,
+                                      size: 15,
+                                    ),
+
+                                    headingRowColor:
+                                        MaterialStateProperty.all<Color>(
+                                            accentColor),
+                                    columns: const [
+                                      DataColumn(label: Text('DATE')),
+                                      DataColumn(label: Text('TOTAL\nINCOME')),
+                                      DataColumn(
+                                          label: Text('GLOBAL\nPERCENT')),
+                                      DataColumn(
+                                          label: Text('PAYMENT\nSTATUS')),
+                                      DataColumn(label: Text('ACTION')),
+                                    ],
+                                    rows: listOfColumns.asMap().entries.map(
+                                      ((entry) {
+                                        entry.value["PAYMENT"] == "APPLY"
+                                            ? isApplied.value = false
+                                            : isApplied.value = true;
+
+                                        return DataRow(
+                                          cells: <DataCell>[
+                                            DataCell(Text(entry.value["DATE"])),
+                                            DataCell(Text(
+                                              entry.value["TOTAL"],
+                                            )),
+                                            DataCell(Text(
+                                                entry.value["PERCENT"] + "%")),
+                                            DataCell(
+                                              Obx(
+                                                () => InkWell(
+                                                  onTap: () {
+                                                    if (isApplied.value ==
+                                                        false) {
+                                                      entry.value["PAYMENT"] =
+                                                          "APPLIED";
+                                                      isApplied.value = true;
+                                                    } else {
+                                                      null;
+                                                    }
+                                                  },
+                                                  child: Container(
+                                                    height: 30,
+                                                    width: 100,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                        color: isApplied.value
+                                                            ? Colors.grey
+                                                            : Colors.green),
+                                                    child: Center(
+                                                      child: Text(
+                                                        entry.value["PAYMENT"],
+                                                        style: const TextStyle(
+                                                            fontSize: 14,
+                                                            color:
+                                                                Colors.white),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            DataCell(entry.value["ACTION"]),
+                                          ],
+                                        );
+                                      }),
+                                    ).toList(),
+                                  ),
+                                )),
+                          ),
                         ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15.0, top: 15),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Showing 1 to 10 out of 20 entries",
+                                style: fontStyle(
+                                  fontWeight: FontWeight.w500,
+                                  size: 12,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Card(
+                                    elevation: 5,
+                                    color: HexColor("D6D4D4"),
+                                    child: SizedBox(
+                                        height: 20,
+                                        width: 70,
+                                        child: Center(
+                                          child: Text(
+                                            "Previous",
+                                            style: fontStyle(
+                                              color: white,
+                                              size: 13,
+                                            ),
+                                          ),
+                                        )),
+                                  ),
+                                  Container(
+                                    height: 25,
+                                    width: 30,
+                                    decoration: const BoxDecoration(
+                                      color: Colors.red,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "1",
+                                        style: fontStyle(
+                                            color: white, fontWeight: bold),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 25,
+                                    width: 30,
+                                    decoration: BoxDecoration(
+                                      color: HexColor("D6D4D4"),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "2",
+                                        style: fontStyle(
+                                            color: white, fontWeight: bold),
+                                      ),
+                                    ),
+                                  ),
+                                  Card(
+                                    elevation: 5,
+                                    color: accentColor,
+                                    child: SizedBox(
+                                        height: 20,
+                                        width: 70,
+                                        child: Center(
+                                          child: Text(
+                                            "Next",
+                                            style: fontStyle(
+                                              color: white,
+                                              size: 13,
+                                            ),
+                                          ),
+                                        )),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        // Row(
+                        //   children: [
+                        //     Center(
+                        //       child: IconButton(
+                        //         icon: const Icon(Icons.remove_red_eye,
+                        //             color: Colors.blue),
+                        //         onPressed: () {},
+                        //       ),
+                        //     ),
+                        //     Center(
+                        //       child: IconButton(
+                        //         icon:
+                        //             const Icon(Icons.edit, color: Colors.blue),
+                        //         onPressed: () {},
+                        //       ),
+                        //     ),
+                        //     Center(
+                        //       child: IconButton(
+                        //         icon: Icon(Icons.delete, color: accentColor),
+                        //         onPressed: () {
+                        //           CustomAlertBox.dialogBox(
+                        //             onCancelTap: () {},
+                        //             onYesTap: () {},
+                        //           );
+                        //         },
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
                       ],
                     ),
                   ),

@@ -19,13 +19,13 @@ class Payment extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(left: 60.0, top: 10),
           child: SizedBox(
-            height: h * 1.2,
+            height: h * 1.1,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(25.0),
+                  padding: const EdgeInsets.all(30.0),
                   child: Text(
                     "Payment",
                     style: fontStyle(
@@ -36,7 +36,7 @@ class Payment extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: h / 2),
+                  padding: EdgeInsets.only(bottom: h / 1.8),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

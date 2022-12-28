@@ -26,6 +26,7 @@ import '../drawer/App Management/Customer/customer_refer.dart';
 import '../drawer/App Management/Delivery/delivery_payment.dart';
 import '../drawer/App Management/Delivery/delivery_refer.dart';
 import '../drawer/App Management/Delivery/new_delivery.dart';
+import '../drawer/App Management/Delivery/rider_details.dart';
 import '../drawer/App Management/Orders/edit_orders.dart';
 import '../drawer/App Management/Orders/order_details.dart';
 import '../drawer/App Management/Products/edit_product_details.dart';
@@ -197,7 +198,8 @@ class HomePage extends StatelessWidget {
       BannerEdit(), //41
       CustomerPayment(), //42
       VendorPayment(), //43
-      DeliveryPayment() //44
+      DeliveryPayment(), //44
+      RiderDetails() //45
     ];
 
     return Scaffold(

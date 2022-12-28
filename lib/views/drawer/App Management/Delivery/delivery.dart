@@ -66,67 +66,90 @@ class Delivery extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(bottom: h / 5),
+                padding: EdgeInsets.only(bottom: h / 10),
                 child: SizedBox(
                   width: w * 0.8,
-                  height: 241,
-                  child: Row(
+                  height: 400,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10.0),
+                            child: SizedBox(
+                              height: customTileHeight,
+                              width: customTileWidth,
+                              child: CustomTile(
+                                imagePath: "assets/category_custom_tile.png",
+                                onTap: () {
+                                  pageController.index.value = 44;
+                                },
+                                title: "Rider \nDetails",
+                                footerColor: HexColor("F32D2D"),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10.0),
+                            child: SizedBox(
+                              height: customTileHeight,
+                              width: customTileWidth,
+                              child: CustomTile(
+                                imagePath: "assets/riders_custom_tile.png",
+                                onTap: () {
+                                  pageController.index.value = 36;
+                                },
+                                title: "Approve \nDelivery",
+                                footerColor: HexColor("FF8B36"),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10.0),
+                            child: SizedBox(
+                              height: customTileHeight,
+                              width: customTileWidth,
+                              child: CustomTile(
+                                imagePath: "assets/category_custom_tile.png",
+                                onTap: () {
+                                  pageController.index.value = 37;
+                                },
+                                title: "Delivery \nStatus",
+                                footerColor: HexColor("F32D2D"),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10.0),
+                            child: SizedBox(
+                              height: customTileHeight,
+                              width: customTileWidth,
+                              child: CustomTile(
+                                imagePath: "assets/earning_custom_tile.png",
+                                onTap: () {
+                                  pageController.index.value = 38;
+                                },
+                                title: "Payment \nHistory",
+                                footerColor: HexColor("4687FF"),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                       Padding(
-                        padding: const EdgeInsets.only(right: 10.0),
+                        padding: const EdgeInsets.only(right: 10.0, top: 20),
                         child: SizedBox(
                           height: customTileHeight,
                           width: customTileWidth,
                           child: CustomTile(
-                            imagePath: "assets/riders_custom_tile.png",
+                            imagePath: "assets/green_earning_custom_tile.png",
                             onTap: () {
-                              pageController.index.value = 36;
+                              pageController.index.value = 39;
                             },
-                            title: "Approve \nDelivery",
-                            footerColor: HexColor("FF8B36"),
+                            title: "Refer &\nEarn",
+                            footerColor: HexColor("4CAF50"),
                           ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 10.0),
-                        child: SizedBox(
-                          height: customTileHeight,
-                          width: customTileWidth,
-                          child: CustomTile(
-                            imagePath: "assets/category_custom_tile.png",
-                            onTap: () {
-                              pageController.index.value = 37;
-                            },
-                            title: "Delivery \nStatus",
-                            footerColor: HexColor("F32D2D"),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 10.0),
-                        child: SizedBox(
-                          height: customTileHeight,
-                          width: customTileWidth,
-                          child: CustomTile(
-                            imagePath: "assets/earning_custom_tile.png",
-                            onTap: () {
-                              pageController.index.value = 38;
-                            },
-                            title: "Payment \nHistory",
-                            footerColor: HexColor("4687FF"),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: customTileHeight,
-                        width: customTileWidth,
-                        child: CustomTile(
-                          imagePath: "assets/green_earning_custom_tile.png",
-                          onTap: () {
-                            pageController.index.value = 39;
-                          },
-                          title: "Refer &\nEarn",
-                          footerColor: HexColor("4CAF50"),
                         ),
                       ),
                     ],

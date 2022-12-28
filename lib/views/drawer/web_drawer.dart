@@ -220,18 +220,18 @@ class WebDrawer extends StatelessWidget {
                             : HexColor("555454"),
                       ),
                     ),
-                    InkWell(
-                      onTap: () {
-                        pageController.index.value = 13;
-                      },
-                      child: DrawerTile(
-                        title: "Notification",
-                        icon: CustomIcon.bell,
-                        color: pageController.index.value == 13
-                            ? accentColor
-                            : HexColor("555454"),
-                      ),
-                    ),
+                    // InkWell(
+                    //   onTap: () {
+                    //     pageController.index.value = 13;
+                    //   },
+                    //   child: DrawerTile(
+                    //     title: "Notification",
+                    //     icon: CustomIcon.bell,
+                    //     color: pageController.index.value == 13
+                    //         ? accentColor
+                    //         : HexColor("555454"),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

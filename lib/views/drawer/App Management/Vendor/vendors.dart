@@ -16,31 +16,31 @@ class Vendors extends StatelessWidget {
       "Image": "assets/vegetable_round.png",
       "Shop": "Tripathi Store",
       "Address": "234, Purbanchal School Road\nKolkata- 700084",
-      "Action": const Icon(Icons.edit),
+      "Action": const Icon(Icons.delete),
     },
     {
       "Image": "assets/vegetable_round.png",
       "Shop": "Tripathi Store",
       "Address": "234, Purbanchal School Road\nKolkata- 700084",
-      "Action": const Icon(Icons.edit),
+      "Action": const Icon(Icons.delete),
     },
     {
       "Image": "assets/vegetable_round.png",
       "Shop": "Tripathi Store",
       "Address": "234, Purbanchal School Road Kolkata- 700084",
-      "Action": const Icon(Icons.edit),
+      "Action": const Icon(Icons.delete),
     },
     {
       "Image": "assets/vegetable_round.png",
       "Shop": "Tripathi Store",
       "Address": "234, Purbanchal School Road Kolkata- 700084",
-      "Action": const Icon(Icons.edit),
+      "Action": const Icon(Icons.delete),
     },
     {
       "Image": "assets/vegetable_round.png",
       "Shop": "Tripathi Store",
       "Address": "234, Purbanchal School Road Kolkata- 700084",
-      "Action": const Icon(Icons.edit),
+      "Action": const Icon(Icons.delete),
     }
   ];
   @override

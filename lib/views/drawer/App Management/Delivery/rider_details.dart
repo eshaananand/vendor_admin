@@ -9,9 +9,8 @@ import '../../../../constants/theme.dart';
 import '../../../widgets/bottom_bar.dart';
 
 class RiderDetails extends StatelessWidget {
-  var pageController;
   RiderDetails({super.key, this.pageController});
-
+  var pageController;
   List<String> list = <String>['10', '20', '30', '40', '50'];
 
   @override
@@ -30,102 +29,9 @@ class RiderDetails extends StatelessWidget {
           children: [
             Center(
               child: IconButton(
-                icon: const Icon(Icons.edit, color: Colors.blue),
+                icon: const Icon(Icons.remove_red_eye, color: Colors.blue),
                 onPressed: () {
-                  pageController.index.value = 23;
-                },
-              ),
-            ),
-            Center(
-              child: IconButton(
-                icon: Icon(Icons.delete, color: accentColor),
-                onPressed: () {
-                  CustomAlertBox.dialogBox(
-                    onCancelTap: () {},
-                    onYesTap: () {},
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      },
-      {
-        "NAME": "Steak",
-        "ADDRESS": "234, Purbanchal School Road",
-        "PHONE": "123456789",
-        "AVABILITY": "YES",
-        "ACTIVE": "NO",
-        "TYPE": "Tools",
-        "ACTION": Row(
-          children: [
-            Center(
-              child: IconButton(
-                icon: const Icon(Icons.edit, color: Colors.blue),
-                onPressed: () {
-                  pageController.index.value = 23;
-                },
-              ),
-            ),
-            Center(
-              child: IconButton(
-                icon: Icon(Icons.delete, color: accentColor),
-                onPressed: () {
-                  CustomAlertBox.dialogBox(
-                    onCancelTap: () {},
-                    onYesTap: () {},
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      },
-      {
-        "NAME": "Steak",
-        "ADDRESS": "234, Purbanchal School Road",
-        "PHONE": "123456789",
-        "AVABILITY": "YES",
-        "ACTIVE": "NO",
-        "TYPE": "Tools",
-        "ACTION": Row(
-          children: [
-            Center(
-              child: IconButton(
-                icon: const Icon(Icons.edit, color: Colors.blue),
-                onPressed: () {
-                  pageController.index.value = 23;
-                },
-              ),
-            ),
-            Center(
-              child: IconButton(
-                icon: Icon(Icons.delete, color: accentColor),
-                onPressed: () {
-                  CustomAlertBox.dialogBox(
-                    onCancelTap: () {},
-                    onYesTap: () {},
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      },
-      {
-        "NAME": "Steak",
-        "ADDRESS": "234, Purbanchal School Road",
-        "PHONE": "123456789",
-        "AVABILITY": "YES",
-        "ACTIVE": "YES",
-        "TYPE": "Tools",
-        "ACTION": Row(
-          children: [
-            Center(
-              child: IconButton(
-                icon: const Icon(Icons.edit, color: Colors.blue),
-                onPressed: () {
-                  pageController.index.value = 23;
+                  pageController.index.value = 46;
                 },
               ),
             ),

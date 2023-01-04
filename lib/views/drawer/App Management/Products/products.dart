@@ -15,33 +15,9 @@ class Products extends StatelessWidget {
     {
       "Image": "assets/vegetable_round.png",
       "Shop": "Tripathi Store",
-      "Address": "234, Purbanchal School Road\nKolkata- 700084",
-      "Action": const Icon(Icons.edit),
+      "Product": "Demo Product",
+      "Action": const Icon(Icons.delete),
     },
-    {
-      "Image": "assets/vegetable_round.png",
-      "Shop": "Tripathi Store",
-      "Address": "234, Purbanchal School Road\nKolkata- 700084",
-      "Action": const Icon(Icons.edit),
-    },
-    {
-      "Image": "assets/vegetable_round.png",
-      "Shop": "Tripathi Store",
-      "Address": "234, Purbanchal School Road Kolkata- 700084",
-      "Action": const Icon(Icons.edit),
-    },
-    {
-      "Image": "assets/vegetable_round.png",
-      "Shop": "Tripathi Store",
-      "Address": "234, Purbanchal School Road Kolkata- 700084",
-      "Action": const Icon(Icons.edit),
-    },
-    {
-      "Image": "assets/vegetable_round.png",
-      "Shop": "Tripathi Store",
-      "Address": "234, Purbanchal School Road Kolkata- 700084",
-      "Action": const Icon(Icons.edit),
-    }
   ];
 
   @override
@@ -199,7 +175,7 @@ class Products extends StatelessWidget {
                             columns: const [
                               DataColumn(label: Text('Image')),
                               DataColumn(label: Text('Shop')),
-                              DataColumn(label: Text('Address')),
+                              DataColumn(label: Text('Product')),
                               DataColumn(label: Text('Action')),
                             ],
                             rows: listOfColumns.asMap().entries.map(
@@ -217,7 +193,7 @@ class Products extends StatelessWidget {
                                           height: 45),
                                     ), //Extracting from Map element the value
                                     DataCell(Text(entry.value["Shop"])),
-                                    DataCell(Text(entry.value["Address"])),
+                                    DataCell(Text(entry.value["Product"])),
                                     DataCell(entry.value["Action"]),
                                   ],
                                 );

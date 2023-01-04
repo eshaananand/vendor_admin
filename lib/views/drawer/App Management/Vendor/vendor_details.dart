@@ -30,6 +30,14 @@ class VendorDetails extends StatelessWidget {
           children: [
             Center(
               child: IconButton(
+                icon: const Icon(Icons.remove_red_eye, color: Colors.blue),
+                onPressed: () {
+                  pageController.index.value = 46;
+                },
+              ),
+            ),
+            Center(
+              child: IconButton(
                 icon: const Icon(Icons.edit, color: Colors.blue),
                 onPressed: () {
                   pageController.index.value = 23;

@@ -16,14 +16,16 @@ class NewVendor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> activeList = <String>['Yes', 'No'];
+    List<String> availableList = <String>['Yes', 'No'];
     final activeValue = activeList.first.obs;
+    final availableValue = availableList.first.obs;
+
     final List<Map<String, dynamic>> listOfColumns = [
       {
         "NAME": "Steak",
         "IMAGE": "assets/image.png",
         "ADDRESS": "234, Purbanchal School Road",
         "PHONE": "123456789",
-        "AVAILABLE": "Yes",
         "ACTIVE": Obx(
           () => DropdownButton<String>(
             value: activeValue.value,
@@ -273,9 +275,6 @@ class NewVendor extends StatelessWidget {
                                         DataColumn(label: Text('IMAGE')),
                                         DataColumn(label: Text('ADDRESS')),
                                         DataColumn(label: Text('PHONE')),
-                                        DataColumn(
-                                            label: Text(
-                                                'AVAILABLE\nFOR DELIVERY')),
                                         DataColumn(label: Text('ACTIVE')),
                                         DataColumn(label: Text('UPDATED  AT')),
                                         DataColumn(label: Text('ACTION')),
@@ -292,15 +291,6 @@ class NewVendor extends StatelessWidget {
                                                   Text(entry.value["ADDRESS"])),
                                               DataCell(
                                                   Text(entry.value["PHONE"])),
-                                              DataCell(
-                                                  Text(entry.value["AVAILABLE"],
-                                                      style: fontStyle(
-                                                        color: entry.value[
-                                                                    "AVAILABLE"] ==
-                                                                'Yes'
-                                                            ? Colors.green
-                                                            : accentColor,
-                                                      ))),
                                               DataCell(entry.value["ACTIVE"]),
                                               DataCell(Text(
                                                   entry.value["UPDATED AT"])),

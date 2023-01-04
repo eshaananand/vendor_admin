@@ -21,12 +21,14 @@ import '../drawer/App Management/Categories/categories.dart';
 import '../drawer/App Management/Categories/edit_categories.dart';
 import '../drawer/App Management/Categories/edit_subcategory.dart';
 import '../drawer/App Management/Customer/customer_details.dart';
+import '../drawer/App Management/Customer/customer_info.dart';
 import '../drawer/App Management/Customer/customer_payment_history.dart';
 import '../drawer/App Management/Customer/customer_refer.dart';
 import '../drawer/App Management/Delivery/delivery_payment.dart';
 import '../drawer/App Management/Delivery/delivery_refer.dart';
 import '../drawer/App Management/Delivery/new_delivery.dart';
 import '../drawer/App Management/Delivery/rider_details.dart';
+import '../drawer/App Management/Delivery/rider_info.dart';
 import '../drawer/App Management/Orders/edit_orders.dart';
 import '../drawer/App Management/Orders/order_details.dart';
 import '../drawer/App Management/Products/edit_product_details.dart';
@@ -39,6 +41,7 @@ import '../drawer/App Management/Vendor/new_vendors.dart';
 import '../drawer/App Management/Coupons/coupons.dart';
 import '../drawer/App Management/Customer/customers.dart';
 import '../drawer/App Management/Delivery/delivery.dart';
+import '../drawer/App Management/Vendor/vendor_info.dart';
 import '../drawer/App Management/global_income.dart';
 import '../drawer/Settings/Banner/banner.dart';
 import '../drawer/Settings/Banner/banner_edit.dart';
@@ -110,7 +113,9 @@ class HomePage extends StatelessWidget {
         //14
         pageController: pageIndexController,
       ),
-      CustomerDetails(), //15
+      CustomerDetails(
+        pageController: pageIndexController,
+      ), //15
       CustomerPaymentHistory(), //6
       CustomerRefer(), //17
       NewVendor(), //18
@@ -199,7 +204,12 @@ class HomePage extends StatelessWidget {
       CustomerPayment(), //42
       VendorPayment(), //43
       DeliveryPayment(), //44
-      RiderDetails() //45
+      RiderDetails(
+        pageController: pageIndexController,
+      ), //45
+      CustomerInfo(), //46
+      VendorInfo(), //47
+      RiderInfo() //48
     ];
 
     return Scaffold(

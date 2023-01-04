@@ -8,149 +8,45 @@ import '../../../../constants/theme.dart';
 import '../../../widgets/bottom_bar.dart';
 
 class CustomerDetails extends StatelessWidget {
-  CustomerDetails({super.key});
+  var pageController;
+  CustomerDetails({super.key, this.pageController});
 
-  List<String> list = <String>['10', '20', '30', '40', '50'];
-  final List<Map<String, dynamic>> listOfColumns = [
-    {
-      "PRODUCT": "Steak",
-      "IMAGE": "assets/image.png",
-      "ADDRESS": "234, Purbanchal School Road",
-      "PHONE": "123456789",
-      "EMAIL": "demo@gmail.com",
-      "UPDATED AT": "1 year ago",
-      "ACTION": IconButton(
-        icon: Icon(Icons.delete, color: accentColor),
-        onPressed: () {
-          CustomAlertBox.dialogBox(
-            onCancelTap: () {},
-            onYesTap: () {},
-          );
-        },
-      ),
-    },
-    {
-      "PRODUCT": "Steak",
-      "IMAGE": "assets/image.png",
-      "ADDRESS": "Swayam Verma",
-      "PHONE": "123456789",
-      "EMAIL": "demo@gmail.com",
-      "UPDATED AT": "1 year ago",
-      "ACTION": IconButton(
-        icon: Icon(Icons.delete, color: accentColor),
-        onPressed: () {
-          CustomAlertBox.dialogBox(
-            onCancelTap: () {},
-            onYesTap: () {},
-          );
-        },
-      ),
-    },
-    {
-      "PRODUCT": "Steak",
-      "IMAGE": "assets/image.png",
-      "ADDRESS": "Swayam Verma",
-      "PHONE": "123456789",
-      "EMAIL": "demo@gmail.com",
-      "UPDATED AT": "1 year ago",
-      "ACTION": IconButton(
-        icon: Icon(Icons.delete, color: accentColor),
-        onPressed: () {
-          CustomAlertBox.dialogBox(
-            onCancelTap: () {},
-            onYesTap: () {},
-          );
-        },
-      ),
-    },
-    {
-      "PRODUCT": "Steak",
-      "IMAGE": "assets/image.png",
-      "ADDRESS": "Swayam Verma",
-      "PHONE": "123456789",
-      "EMAIL": "demo@gmail.com",
-      "UPDATED AT": "1 year ago",
-      "ACTION": IconButton(
-        icon: Icon(Icons.delete, color: accentColor),
-        onPressed: () {
-          CustomAlertBox.dialogBox(
-            onCancelTap: () {},
-            onYesTap: () {},
-          );
-        },
-      ),
-    },
-    {
-      "PRODUCT": "Steak",
-      "IMAGE": "assets/image.png",
-      "ADDRESS": "Swayam Verma",
-      "PHONE": "123456789",
-      "EMAIL": "demo@gmail.com",
-      "UPDATED AT": "1 year ago",
-      "ACTION": IconButton(
-        icon: Icon(Icons.delete, color: accentColor),
-        onPressed: () {
-          CustomAlertBox.dialogBox(
-            onCancelTap: () {},
-            onYesTap: () {},
-          );
-        },
-      ),
-    },
-    {
-      "PRODUCT": "Steak",
-      "IMAGE": "assets/image.png",
-      "ADDRESS": "Swayam Verma",
-      "PHONE": "123456789",
-      "EMAIL": "demo@gmail.com",
-      "UPDATED AT": "1 year ago",
-      "ACTION": IconButton(
-        icon: Icon(Icons.delete, color: accentColor),
-        onPressed: () {
-          CustomAlertBox.dialogBox(
-            onCancelTap: () {},
-            onYesTap: () {},
-          );
-        },
-      ),
-    },
-    {
-      "PRODUCT": "Steak",
-      "IMAGE": "assets/image.png",
-      "ADDRESS": "Swayam Verma",
-      "PHONE": "123456789",
-      "EMAIL": "demo@gmail.com",
-      "UPDATED AT": "1 year ago",
-      "ACTION": IconButton(
-        icon: Icon(Icons.delete, color: accentColor),
-        onPressed: () {
-          CustomAlertBox.dialogBox(
-            onCancelTap: () {},
-            onYesTap: () {},
-          );
-        },
-      ),
-    },
-    {
-      "PRODUCT": "Steak",
-      "IMAGE": "assets/image.png",
-      "ADDRESS": "Swayam Verma",
-      "PHONE": "123456789",
-      "EMAIL": "demo@gmail.com",
-      "UPDATED AT": "1 year ago",
-      "ACTION": IconButton(
-        icon: Icon(Icons.delete, color: accentColor),
-        onPressed: () {
-          CustomAlertBox.dialogBox(
-            onCancelTap: () {},
-            onYesTap: () {},
-          );
-        },
-      ),
-    },
-  ];
   @override
   Widget build(BuildContext context) {
+    List<String> list = <String>['10', '20', '30', '40', '50'];
+    final List<Map<String, dynamic>> listOfColumns = [
+      {
+        "PRODUCT": "Steak",
+        "IMAGE": "assets/image.png",
+        "ADDRESS": "234, Purbanchal School Road",
+        "PHONE": "123456789",
+        "EMAIL": "demo@gmail.com",
+        "UPDATED AT": "1 year ago",
+        "ACTION": Row(
+          children: [
+            Center(
+              child: IconButton(
+                icon: const Icon(Icons.remove_red_eye, color: Colors.blue),
+                onPressed: () {
+                  pageController.index.value = 45;
+                },
+              ),
+            ),
+            Center(
+              child: IconButton(
+                icon: Icon(Icons.delete, color: accentColor),
+                onPressed: () {
+                  CustomAlertBox.dialogBox(
+                    onCancelTap: () {},
+                    onYesTap: () {},
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      },
+    ];
     var dropdownValue = list.first.obs;
     return Scaffold(
       body: SingleChildScrollView(

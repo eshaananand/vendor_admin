@@ -15,6 +15,36 @@ class NewProduct extends StatelessWidget {
 
   List<String> list = <String>['10', '20', '30', '40', '50'];
 
+  Widget active() {
+    List<String> activeList = <String>['Yes', 'No'];
+    final activeValue = activeList.first.obs;
+    return Obx(() {
+      return DropdownButton<String>(
+        value: activeValue.value,
+        icon: const Icon(Icons.arrow_drop_down),
+        style: TextStyle(
+            color: activeValue.value == 'Yes' ? Colors.green : accentColor),
+        onChanged: (String? value) {
+          activeValue.value = value!;
+        },
+        underline: const SizedBox(
+          height: 0,
+          width: 0,
+        ),
+        items: activeList.map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value,
+                style: fontStyle(
+                  color:
+                      activeValue.value == 'Yes' ? Colors.green : accentColor,
+                )),
+          );
+        }).toList(),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> listOfColumns = [
@@ -23,19 +53,8 @@ class NewProduct extends StatelessWidget {
         "IMAGE": "assets/image.png",
         "DESCRIPTION": "123456789",
         "CATEGORY": "123456789",
-        "UPDATED": "123456789",
         "SUB-CATEGORY": "123456789",
-        "ACTION": Center(
-          child: IconButton(
-            icon: Icon(Icons.delete, color: accentColor),
-            onPressed: () {
-              CustomAlertBox.dialogBox(
-                onCancelTap: () {},
-                onYesTap: () {},
-              );
-            },
-          ),
-        ),
+        "ACTIVE": active()
       },
       {
         "NAME": "Steak",
@@ -43,17 +62,7 @@ class NewProduct extends StatelessWidget {
         "DESCRIPTION": "123456789",
         "CATEGORY": "123456789",
         "SUB-CATEGORY": "123456789",
-        "ACTION": Center(
-          child: IconButton(
-            icon: Icon(Icons.delete, color: accentColor),
-            onPressed: () {
-              CustomAlertBox.dialogBox(
-                onCancelTap: () {},
-                onYesTap: () {},
-              );
-            },
-          ),
-        ),
+        "ACTIVE": active()
       },
     ];
 
@@ -275,7 +284,7 @@ class NewProduct extends StatelessWidget {
                                       DataColumn(label: Text('DESCRIPTION')),
                                       DataColumn(label: Text('CATEGORY')),
                                       DataColumn(label: Text('SUB-CATEGORY')),
-                                      DataColumn(label: Text('ACTION')),
+                                      DataColumn(label: Text('ACTIVE')),
                                     ],
                                     rows: listOfColumns.asMap().entries.map(
                                       ((entry) {
@@ -290,7 +299,7 @@ class NewProduct extends StatelessWidget {
                                                 Text(entry.value["CATEGORY"])),
                                             DataCell(Text(
                                                 entry.value["SUB-CATEGORY"])),
-                                            DataCell(entry.value["ACTION"]),
+                                            DataCell(entry.value["ACTIVE"]),
                                           ],
                                         );
                                       }),
